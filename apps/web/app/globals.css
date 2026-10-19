@@ -1,0 +1,15 @@
+
+.daily-calendar { margin: 1rem 0 2rem; }
+.month-grid { display:grid; grid-template-columns:repeat(7,minmax(0,1fr)); gap:.3rem; max-width:32rem; padding:1rem 0; text-align:center; }
+.month-grid button[aria-current="date"] { outline:3px solid currentColor; font-weight:bold; }
+.day-timeline { border-top:1px solid var(--border,#88998a); margin-top:1rem; }
+.day-hour { display:grid; grid-template-columns:5rem minmax(0,1fr); min-height:3.5rem; border-bottom:1px solid #88998a55; }
+.hour-label { align-self:start; background:transparent; border:0; padding:.7rem .2rem; }
+.day-card { padding:.65rem; margin:.35rem; border-left:4px solid #438875; border-radius:.4rem; background:#43887518; overflow-wrap:anywhere; }
+.day-card>div { display:flex; align-items:center; gap:.6rem; }
+.day-card input { width:1.25rem; height:1.25rem; flex-shrink:0; }
+.day-card button { text-align:left; background:transparent; border:0; font-weight:600; }
+.day-card small { display:block; margin-top:.25rem; }
+.record-times { margin:.7rem 0; }
+.proposal pre { white-space:pre-wrap; overflow-wrap:anywhere; font-size:.8rem; }
+.chat-messages { display:grid; gap:.7rem; margin:1rem 0; }

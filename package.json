@@ -1,0 +1,47 @@
+{
+  "name": "omnivae",
+  "version": "0.1.0",
+  "private": true,
+  "workspaces": [
+    "apps/web"
+  ],
+  "scripts": {
+    "dev": "npm run dev --workspace @omnivae/web",
+    "build": "npm run build --workspace @omnivae/web && node scripts/build-offline.mjs",
+    "typecheck": "tsc --noEmit",
+    "test": "node --test tests/foundation.test.mjs tests/profiles.test.ts tests/planning.test.ts tests/sqlite-migrations.test.ts tests/ai-provider.test.ts tests/offline-ai.test.ts tests/proposal.test.ts tests/calendar-view.test.ts tests/progress.test.ts tests/sections.test.ts",
+    "requirements": "node scripts/requirements.mjs",
+    "verify:docs": "node scripts/requirements.mjs --check",
+    "android:add": "cap add android",
+    "android:sync": "npm run build && cap sync android",
+    "lint": "eslint apps/web/app packages scripts tests capacitor.config.ts playwright.config.ts eslint.config.mjs --max-warnings=0",
+    "test:e2e": "playwright test",
+    "verify": "node scripts/verify.mjs"
+  },
+  "dependencies": {
+    "@capacitor-community/sqlite": "8.1.1",
+    "@capacitor/android": "8.5.2",
+    "@capacitor/core": "8.5.2",
+    "idb": "8.0.3"
+  },
+  "devDependencies": {
+    "@capacitor/cli": "8.5.2",
+    "@playwright/test": "1.63.0",
+    "@types/node": "^22.0.0",
+    "@types/react": "^19.0.0",
+    "@types/react-dom": "^19.0.0",
+    "eslint": "9.39.5",
+    "eslint-config-next": "16.3.6",
+    "fake-indexeddb": "6.2.5",
+    "typescript": "6.0.3"
+  },
+  "type": "module",
+  "engines": {
+    "node": ">=24.0.0"
+  },
+  "overrides": {
+    "xcode": {
+      "uuid": "11.1.1"
+    }
+  }
+}

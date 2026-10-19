@@ -1,0 +1,13 @@
+import {spawn} from 'node:child_process';
+import {appendFileSync,mkdirSync} from 'node:fs';
+const [command,...args]=process.argv.slice(2);
+if(!command) throw new Error('Usage: node scripts/run-visible.mjs <command> [args]');
+mkdirSync('logs',{recursive:true});
+const file='logs/live-work.txt';
+const write=chunk=>{process.stdout.write(chunk);appendFileSync(file,chunk);};
+write(`\n[${new Date().toISOString()}] COMMAND: ${command} ${args.join(' ')}\n`);
+const child=spawn(command==='node'?process.execPath:command,args,{shell:false,env:process.env});
+child.stdout.on('data',chunk=>write(chunk));
+child.stderr.on('data',chunk=>write(chunk));
+child.on('error',error=>{write(`Launch failed: ${error.message}\n`);process.exitCode=1;});
+child.on('exit',(code,signal)=>{write(`\nRESULT: exit=${code} signal=${signal??'none'}\n`);process.exitCode=code??1;});

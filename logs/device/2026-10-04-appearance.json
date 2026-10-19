@@ -1,0 +1,40 @@
+{
+  "checkedAt": "2026-10-04T22:58:36.461Z",
+  "tests": [
+    {
+      "id": "PROF-001/002/003/007, THEME-001",
+      "result": "pass",
+      "adapter": "real Android SQLite"
+    },
+    {
+      "id": "THEME-003/004",
+      "result": "pass",
+      "detail": "native encrypted background and custom colors persist through cold restart and profile switch"
+    },
+    {
+      "id": "PROF-004/005, U-006",
+      "result": "pass",
+      "detail": "wrong password rejected; cold process restart retains encrypted settings"
+    },
+    {
+      "id": "TASK-001/003, STORE-002, U-006",
+      "result": "pass",
+      "detail": "real native encrypted task and atomic completion history persist after WebView reload"
+    },
+    {
+      "id": "STORE-005/006, U-010",
+      "result": "pass",
+      "version": 4,
+      "settingsEncrypted": true
+    },
+    {
+      "id": "THEME-004 offline",
+      "result": "pass",
+      "detail": "bundled native WebView network disabled, encrypted background reload"
+    }
+  ],
+  "fixtureNames": [
+    "Verification A muuf9sfh",
+    "Verification B muuf9sfh"
+  ]
+}

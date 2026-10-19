@@ -1,0 +1,45 @@
+{
+  "checkedAt": "2026-10-02T15:50:07.247Z",
+  "coldStarts": [
+    {
+      "attempt": 1,
+      "launch": "Starting: Intent { cmp=app.omnivae.personal/.MainActivity }\r\nStatus: ok\r\nLaunchState: COLD\r\nActivity: app.omnivae.personal/.MainActivity\r\nTotalTime: 830\r\nWaitTime: 849\r\nComplete",
+      "viewport": {
+        "width": 1280,
+        "height": 754
+      },
+      "themeControls": "pass",
+      "horizontalOverflow": false,
+      "simulatedOfflineReload": "pass",
+      "startupRegression": "pass",
+      "errorsLog": "--------- beginning of main\r\n10-02 21:20:07.235 12870 12870 E Zygote  : process_name_ptr:12870 app.omnivae.personal\r\n10-02 21:20:07.235 12870 12870 E Zygote  : SetMemoryProtected process_name_ptr:12870 app.omnivae.personal\r\n10-02 21:20:07.818 12870 12870 E MI-PreRender: init cloud whiteList failed\r\n--------- beginning of system\r\n10-02 21:20:07.825 12870 12971 E FramePredict: registerContentObserver fail"
+    },
+    {
+      "attempt": 2,
+      "launch": "Starting: Intent { cmp=app.omnivae.personal/.MainActivity }\r\nStatus: ok\r\nLaunchState: COLD\r\nActivity: app.omnivae.personal/.MainActivity\r\nTotalTime: 738\r\nWaitTime: 747\r\nComplete",
+      "viewport": {
+        "width": 1280,
+        "height": 754
+      },
+      "themeControls": "pass",
+      "horizontalOverflow": false,
+      "simulatedOfflineReload": "pass",
+      "startupRegression": "pass",
+      "errorsLog": "--------- beginning of main\r\n10-02 21:20:09.621 13050 13050 E Zygote  : process_name_ptr:13050 app.omnivae.personal\r\n10-02 21:20:09.621 13050 13050 E Zygote  : SetMemoryProtected process_name_ptr:13050 app.omnivae.personal\r\n10-02 21:20:10.173 13050 13050 E MI-PreRender: init cloud whiteList failed\r\n--------- beginning of system\r\n10-02 21:20:10.175 13050 13158 E FramePredict: registerContentObserver fail"
+    },
+    {
+      "attempt": 3,
+      "launch": "Starting: Intent { cmp=app.omnivae.personal/.MainActivity }\r\nStatus: ok\r\nLaunchState: COLD\r\nActivity: app.omnivae.personal/.MainActivity\r\nTotalTime: 689\r\nWaitTime: 696\r\nComplete",
+      "viewport": {
+        "width": 1280,
+        "height": 754
+      },
+      "themeControls": "pass",
+      "horizontalOverflow": false,
+      "simulatedOfflineReload": "pass",
+      "startupRegression": "pass",
+      "errorsLog": "--------- beginning of main\r\n10-02 21:20:11.666 13242 13242 E Zygote  : process_name_ptr:13242 app.omnivae.personal\r\n10-02 21:20:11.666 13242 13242 E Zygote  : SetMemoryProtected process_name_ptr:13242 app.omnivae.personal\r\n--------- beginning of system\r\n10-02 21:20:12.190 13242 13326 E FramePredict: registerContentObserver fail\r\n10-02 21:20:12.192 13242 13242 E MI-PreRender: init cloud whiteList failed"
+    }
+  ],
+  "networkTest": "WebView simulated offline; device radios unchanged"
+}

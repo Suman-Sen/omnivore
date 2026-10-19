@@ -1,0 +1,9 @@
+{
+  "airplane": "1",
+  "wifi": "0",
+  "result": {
+    "text": "{\"reply\":\"Hello\",\"proposal\":null}\n",
+    "elapsedMs": 62860
+  },
+  "durationMs": 62865
+}

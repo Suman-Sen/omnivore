@@ -1,0 +1,2001 @@
+OMNIVAE — LIVE WORK LOG
+Date: 2026-09-28
+
+CURRENT WORK
+1. Android foundation build using JDK 21 and the project Gradle 8.14.3 wrapper.
+   Command: android\gradlew.bat -p android assembleDebug --no-daemon --console=plain
+   Latest: configured app and Capacitor; Build-Tools 35 installed automatically;
+   SDK Platform 36 installation is in progress using existing accepted licenses.
+2. Web verification: node scripts/verify.mjs (Node 24.19.0).
+   Passed: source inventory, documentation pattern checks, 3 unit checks, patched dependency check, TypeScript.
+   Current: investigating slow ESLint startup. A focused --debug command is running.
+3. Changed apps/web/app/page.tsx: home link now uses Next Link to satisfy lint.
+
+NOT YET DONE
+No functional profiles, planning database, AI, voice or release APK verified.
+Tablet shell is a development preview. Native device testing remains required.
+
+NEXT
+Complete lint diagnostics; finish web build/browser tests; sync current assets;
+finish debug APK; inspect the resulting package; record exact evidence and handoff.
+
+This file will receive command/output updates. No private user data or credentials are logged.
+
+UPDATE — actual command results
+Android: SDK Platform 36 installed successfully using existing licenses.
+Android tasks now running: app:preBuild, app:javaPreCompileDebug, app:checkDebugAarMetadata, app:compileDebugNavigationResources.
+Web: scoped lint passed with --max-warnings=0; verification advanced to production build.
+Focused lint --debug: exit 0. Configuration/rule loading took 68642 ms; page.tsx lint took 367 ms. No source error remains in that file.
+Next: wait for native compilation and production build, then browser tests and latest-asset sync.
+
+ANDROID OUTPUT (forwarded from active build)
+> Task :app:mergeDebugResources
+> Task :capacitor-android:processDebugManifest
+> Task :app:processDebugManifestForPackage
+> Task :app:compressDebugAssets
+No build failure reported yet.
+
+WEB OUTPUT (forwarded from active verification)
+Next.js 16.3.6: creating an optimized production build.
+
+PROGRESS
+Native compilation reached app:compileDebugJavaWithJavac and app:mergeDebugJavaResource.
+Web production build compiled successfully; TypeScript completed; static page generation underway.
+Usage checked on request: 61% five-hour allowance and 94% weekly allowance remained at check time (account-wide).
+No completion claim yet. Next checkpoint is the first installable development APK plus test evidence.
+
+[2026-09-28T09:11:03.157Z] COMMAND: node scripts/capture-preview.mjs
+Saved .local/screenshots/tablet-landscape.png
+
+RESULT: exit=0 signal=none
+
+WEB VERIFICATION COMPLETE — exit 0
+- Source inventory current: 911 sections.
+- Documentation/key-pattern checks passed (manual semantic review is separate).
+- Foundation unit tests: 3/3 passed.
+- Patched UUID build-tool compatibility check passed.
+- TypeScript passed.
+- Strict scoped ESLint passed with zero warnings.
+- Production static build passed.
+- Browser tests: 3/3 passed at tablet landscape, tablet portrait and phone widths.
+- Screenshot captured at .local/screenshots/tablet-landscape.png.
+Android: packaging/debug-signing tasks underway; completion pending.
+
+[2026-09-28T09:12:54.543Z] COMMAND: node node_modules/@capacitor/cli/bin/capacitor sync android
+√ Copying web assets from out to android\app\src\main\assets\public in 104.75ms
+√ Creating capacitor.config.json in android\app\src\main\assets in 1.50ms
+√ copy android in 122.29ms
+√ Updating Android plugins in 2.67ms
+√ update android in 174.73ms
+[info] Sync finished in 0.468s
+
+RESULT: exit=0 signal=none
+COMMAND: android/gradlew.bat -p android assembleDebug --no-daemon --console=plain (refresh verified web assets)
+To honour the JVM settings for this build a single-use Daemon process will be forked. For more on this, please refer to https://docs.gradle.org/8.14.3/userguide/gradle_daemon.html#sec:disabling_the_daemon in the Gradle documentation.
+Daemon will be stopped at the end of the build 
+
+> Configure project :app
+WARNING: Using flatDir should be avoided because it doesn't support any meta-data formats.
+
+> Configure project :capacitor-cordova-android-plugins
+WARNING: Using flatDir should be avoided because it doesn't support any meta-data formats.
+
+> Task :app:preBuild UP-TO-DATE
+> Task :app:preDebugBuild UP-TO-DATE
+> Task :app:mergeDebugNativeDebugMetadata NO-SOURCE
+> Task :app:javaPreCompileDebug UP-TO-DATE
+> Task :capacitor-android:preBuild UP-TO-DATE
+> Task :capacitor-android:preDebugBuild UP-TO-DATE
+> Task :capacitor-android:writeDebugAarMetadata UP-TO-DATE
+> Task :capacitor-cordova-android-plugins:preBuild UP-TO-DATE
+> Task :capacitor-cordova-android-plugins:preDebugBuild UP-TO-DATE
+> Task :capacitor-android:processDebugNavigationResources UP-TO-DATE
+> Task :capacitor-cordova-android-plugins:processDebugNavigationResources
+> Task :capacitor-cordova-android-plugins:writeDebugAarMetadata
+> Task :app:checkDebugAarMetadata UP-TO-DATE
+> Task :app:processDebugNavigationResources UP-TO-DATE
+> Task :app:compileDebugNavigationResources UP-TO-DATE
+> Task :app:generateDebugResValues UP-TO-DATE
+> Task :capacitor-android:generateDebugResValues UP-TO-DATE
+> Task :capacitor-android:generateDebugResources UP-TO-DATE
+> Task :capacitor-android:packageDebugResources UP-TO-DATE
+> Task :capacitor-cordova-android-plugins:generateDebugResValues
+> Task :capacitor-cordova-android-plugins:generateDebugResources
+> Task :capacitor-cordova-android-plugins:packageDebugResources
+> Task :app:mapDebugSourceSetPaths UP-TO-DATE
+> Task :app:generateDebugResources UP-TO-DATE
+> Task :app:mergeDebugResources UP-TO-DATE
+> Task :app:packageDebugResources UP-TO-DATE
+> Task :app:parseDebugLocalResources UP-TO-DATE
+> Task :app:createDebugCompatibleScreenManifests UP-TO-DATE
+> Task :app:extractDeepLinksDebug UP-TO-DATE
+> Task :capacitor-android:extractDeepLinksDebug UP-TO-DATE
+> Task :capacitor-android:processDebugManifest UP-TO-DATE
+> Task :capacitor-cordova-android-plugins:extractDeepLinksDebug
+> Task :capacitor-android:compileDebugLibraryResources UP-TO-DATE
+> Task :capacitor-android:parseDebugLocalResources UP-TO-DATE
+> Task :capacitor-android:generateDebugRFile UP-TO-DATE
+> Task :capacitor-cordova-android-plugins:processDebugManifest
+> Task :capacitor-cordova-android-plugins:compileDebugLibraryResources
+> Task :app:processDebugMainManifest UP-TO-DATE
+> Task :app:processDebugManifest UP-TO-DATE
+> Task :app:processDebugManifestForPackage UP-TO-DATE
+> Task :capacitor-android:javaPreCompileDebug UP-TO-DATE
+> Task :capacitor-cordova-android-plugins:parseDebugLocalResources
+> Task :capacitor-android:compileDebugJavaWithJavac UP-TO-DATE
+> Task :capacitor-android:bundleLibCompileToJarDebug UP-TO-DATE
+> Task :app:mergeDebugShaders UP-TO-DATE
+> Task :app:compileDebugShaders NO-SOURCE
+> Task :app:generateDebugAssets UP-TO-DATE
+> Task :capacitor-android:mergeDebugShaders UP-TO-DATE
+> Task :capacitor-android:compileDebugShaders NO-SOURCE
+> Task :capacitor-android:generateDebugAssets UP-TO-DATE
+> Task :capacitor-android:mergeDebugAssets UP-TO-DATE
+> Task :capacitor-cordova-android-plugins:javaPreCompileDebug
+> Task :capacitor-cordova-android-plugins:mergeDebugShaders
+> Task :capacitor-cordova-android-plugins:compileDebugShaders NO-SOURCE
+> Task :capacitor-cordova-android-plugins:generateDebugAssets UP-TO-DATE
+> Task :capacitor-cordova-android-plugins:mergeDebugAssets
+> Task :capacitor-cordova-android-plugins:generateDebugRFile
+> Task :app:mergeDebugAssets
+> Task :app:processDebugResources UP-TO-DATE
+> Task :capacitor-cordova-android-plugins:compileDebugJavaWithJavac NO-SOURCE
+> Task :capacitor-cordova-android-plugins:bundleLibCompileToJarDebug
+> Task :app:compileDebugJavaWithJavac UP-TO-DATE
+> Task :capacitor-android:bundleLibRuntimeToJarDebug UP-TO-DATE
+> Task :app:desugarDebugFileDependencies UP-TO-DATE
+> Task :capacitor-cordova-android-plugins:bundleLibRuntimeToJarDebug
+> Task :app:dexBuilderDebug UP-TO-DATE
+> Task :app:processDebugJavaRes NO-SOURCE
+> Task :capacitor-android:processDebugJavaRes NO-SOURCE
+> Task :capacitor-cordova-android-plugins:processDebugJavaRes NO-SOURCE
+> Task :app:mergeDebugJavaResource UP-TO-DATE
+> Task :app:compressDebugAssets
+> Task :app:checkDebugDuplicateClasses UP-TO-DATE
+> Task :app:mergeExtDexDebug UP-TO-DATE
+> Task :capacitor-android:bundleLibRuntimeToDirDebug UP-TO-DATE
+> Task :capacitor-cordova-android-plugins:bundleLibRuntimeToDirDebug
+> Task :app:mergeProjectDexDebug UP-TO-DATE
+> Task :app:mergeDebugJniLibFolders UP-TO-DATE
+> Task :capacitor-android:mergeDebugJniLibFolders UP-TO-DATE
+> Task :capacitor-android:mergeDebugNativeLibs NO-SOURCE
+> Task :capacitor-android:copyDebugJniLibsProjectOnly UP-TO-DATE
+> Task :capacitor-cordova-android-plugins:mergeDebugJniLibFolders
+> Task :capacitor-cordova-android-plugins:mergeDebugNativeLibs NO-SOURCE
+> Task :app:validateSigningDebug UP-TO-DATE
+> Task :app:writeDebugAppMetadata UP-TO-DATE
+> Task :capacitor-cordova-android-plugins:copyDebugJniLibsProjectOnly
+> Task :app:mergeDebugNativeLibs NO-SOURCE
+> Task :app:stripDebugDebugSymbols NO-SOURCE
+> Task :app:writeDebugSigningConfigVersions UP-TO-DATE
+> Task :capacitor-android:checkDebugAarMetadata UP-TO-DATE
+> Task :app:mergeDebugGlobalSynthetics UP-TO-DATE
+> Task :app:mergeLibDexDebug UP-TO-DATE
+> Task :capacitor-android:stripDebugDebugSymbols NO-SOURCE
+> Task :capacitor-android:copyDebugJniLibsProjectAndLocalJars UP-TO-DATE
+> Task :capacitor-android:extractDebugAnnotations UP-TO-DATE
+> Task :capacitor-android:extractDeepLinksForAarDebug UP-TO-DATE
+> Task :capacitor-android:mergeDebugGeneratedProguardFiles UP-TO-DATE
+> Task :capacitor-android:mergeDebugConsumerProguardFiles UP-TO-DATE
+> Task :capacitor-android:prepareDebugArtProfile UP-TO-DATE
+> Task :capacitor-android:prepareLintJarForPublish UP-TO-DATE
+> Task :capacitor-android:mergeDebugJavaResource UP-TO-DATE
+> Task :capacitor-android:syncDebugLibJars UP-TO-DATE
+> Task :capacitor-android:bundleDebugAar UP-TO-DATE
+> Task :capacitor-android:assembleDebug UP-TO-DATE
+> Task :capacitor-cordova-android-plugins:checkDebugAarMetadata
+> Task :app:packageDebug
+> Task :app:createDebugApkListingFileRedirect UP-TO-DATE
+> Task :app:assembleDebug
+> Task :capacitor-cordova-android-plugins:stripDebugDebugSymbols NO-SOURCE
+> Task :capacitor-cordova-android-plugins:copyDebugJniLibsProjectAndLocalJars
+> Task :capacitor-cordova-android-plugins:extractDebugAnnotations
+> Task :capacitor-cordova-android-plugins:extractDeepLinksForAarDebug UP-TO-DATE
+> Task :capacitor-cordova-android-plugins:mergeDebugGeneratedProguardFiles UP-TO-DATE
+> Task :capacitor-cordova-android-plugins:mergeDebugConsumerProguardFiles UP-TO-DATE
+> Task :capacitor-cordova-android-plugins:prepareDebugArtProfile UP-TO-DATE
+> Task :capacitor-cordova-android-plugins:prepareLintJarForPublish UP-TO-DATE
+> Task :capacitor-cordova-android-plugins:mergeDebugJavaResource
+> Task :capacitor-cordova-android-plugins:syncDebugLibJars
+> Task :capacitor-cordova-android-plugins:bundleDebugAar
+> Task :capacitor-cordova-android-plugins:assembleDebug
+
+BUILD SUCCESSFUL in 1m 51s
+93 actionable tasks: 27 executed, 66 up-to-date
+COMMAND: apksigner verify --verbose app-debug.apk
+Verifies
+Verified using v1 scheme (JAR signing): false
+Verified using v2 scheme (APK Signature Scheme v2): true
+Verified using v3 scheme (APK Signature Scheme v3): false
+Verified using v3.1 scheme (APK Signature Scheme v3.1): false
+Verified using v4 scheme (APK Signature Scheme v4): false
+Verified for SourceStamp: false
+Number of signers: 1
+package: name='app.omnivae.personal' versionCode='1' versionName='1.0' platformBuildVersionName='16' platformBuildVersionCode='36' compileSdkVersion='36' compileSdkVersionCodename='16'
+sdkVersion:'24'
+targetSdkVersion:'36'
+uses-permission: name='android.permission.INTERNET'
+uses-permission: name='app.omnivae.personal.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION'
+application-label:'Omnivae'
+application-label-af:'Omnivae'
+application-label-am:'Omnivae'
+application-label-ar:'Omnivae'
+application-label-as:'Omnivae'
+application-label-az:'Omnivae'
+application-label-be:'Omnivae'
+
+Algorithm : SHA256
+Hash      : 93B3472BC710B74B327ECB652963541A304B45650B6DA205995F29F71FE64AB9
+Path      : D:\D_downloads\omnivae-specs\omnivae-specs\android\app\build\outputs\apk\debug\app-debug.apk
+
+
+
+[2026-09-28T09:18:36.801Z] COMMAND: node D:/nvm4w/nodejs/node_modules/npm/bin/npm-cli.js view idb version license repository.url
+version = '8.0.3'
+license = 'ISC'
+repository.url = 'git://github.com/jakearchibald/idb.git'
+
+RESULT: exit=0 signal=none
+
+[2026-09-28T09:18:50.533Z] COMMAND: node D:/nvm4w/nodejs/node_modules/npm/bin/npm-cli.js view @capacitor-community/sqlite version peerDependencies license
+version = '8.1.1'
+peerDependencies = { '@capacitor/core': '>=8.0.0' }
+license = 'MIT'
+
+RESULT: exit=0 signal=none
+PROFILE WORK: added disabled prototype contracts, session service and standard Web Crypto adapter. No profile UI enabled; tests and adapters next.
+
+[2026-09-28T09:21:07.902Z] COMMAND: node D:/nvm4w/nodejs/node_modules/npm/bin/npm-cli.js install --save-exact idb@8
+
+added 1 package, and audited 450 packages in 9s
+
+151 packages are looking for funding
+  run `npm fund` for details
+
+found 0 vulnerabilities
+
+RESULT: exit=0 signal=none
+
+[2026-09-28T09:21:16.666Z] COMMAND: node D:/nvm4w/nodejs/node_modules/npm/bin/npm-cli.js install -D --save-exact fake-indexeddb
+
+added 1 package, and audited 451 packages in 2s
+
+151 packages are looking for funding
+  run `npm fund` for details
+
+found 0 vulnerabilities
+
+RESULT: exit=0 signal=none
+
+[2026-09-28T09:23:42.847Z] COMMAND: node --test tests/profiles.test.ts
+✔ PROF-001/002/003/007: create isolated profiles without email, unlock, persist settings (703.3104ms)
+✔ PROF-004/005: incorrect credentials and stale sessions cannot access settings (321.3721ms)
+✔ STORE-003: duplicate auth insertion rolls back profile creation transaction (109.6021ms)
+✔ U-006/STORE-005/006/007: reopen versioned DB preserves populated profiles (315.7792ms)
+✔ SEC: persisted records contain no password, raw key or plaintext preferences (115.0971ms)
+✔ SEC: swapped profile ciphertext and tampered ciphertext fail authentication (231.6427ms)
+✔ PROF: persisted throttling prevents further KDF attempts until timeout (820.9213ms)
+
+RESULT: exit=0 signal=none
+✔ U-007: invalid profile/settings input does not write partial records (225.6936ms)
+ℹ tests 8
+ℹ suites 0
+ℹ pass 8
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 3794.1822
+
+[2026-09-28T09:23:47.291Z] COMMAND: node node_modules/typescript/bin/tsc --noEmit
+
+RESULT: exit=0 signal=none
+
+[2026-09-28T09:25:12.235Z] COMMAND: node D:/nvm4w/nodejs/node_modules/npm/bin/npm-cli.js install --save-exact @capacitor-community/sqlite@8.1.1
+
+added 19 packages, and audited 470 packages in 11s
+
+151 packages are looking for funding
+  run `npm fund` for details
+
+found 0 vulnerabilities
+
+RESULT: exit=0 signal=none
+
+[2026-09-28T09:27:53.102Z] COMMAND: node node_modules/typescript/bin/tsc --noEmit
+
+RESULT: exit=0 signal=none
+
+2026-10-02: Installing verified Omnivae preview on authorized Redmi tablet using adb install -r.
+Performing Streamed Install
+adb.exe: failed to install android/app/build/outputs/apk/debug/app-debug.apk: Failure [INSTALL_FAILED_USER_RESTRICTED: Install canceled by user]
+
+Performing Streamed Install
+Success
+Starting: Intent { cmp=app.omnivae.personal/.MainActivity }
+Status: ok
+LaunchState: COLD
+Activity: app.omnivae.personal/.MainActivity
+TotalTime: 1108
+WaitTime: 1125
+Complete
+
+[2026-10-02T15:46:54.538Z] COMMAND: node node_modules/@capacitor/cli/bin/capacitor copy android
+√ Copying web assets from out to android\app\src\main\assets\public in 607.21ms
+√ Creating capacitor.config.json in android\app\src\main\assets in 12.68ms
+√ copy android in 1.13s
+
+RESULT: exit=0 signal=none
+To honour the JVM settings for this build a single-use Daemon process will be forked. For more on this, please refer to https://docs.gradle.org/8.14.3/userguide/gradle_daemon.html#sec:disabling_the_daemon in the Gradle documentation.
+Daemon will be stopped at the end of the build 
+
+> Configure project :app
+WARNING: Using flatDir should be avoided because it doesn't support any meta-data formats.
+
+> Configure project :capacitor-cordova-android-plugins
+WARNING: Using flatDir should be avoided because it doesn't support any meta-data formats.
+
+> Task :app:preBuild UP-TO-DATE
+> Task :app:preDebugBuild UP-TO-DATE
+> Task :app:mergeDebugNativeDebugMetadata NO-SOURCE
+> Task :app:javaPreCompileDebug UP-TO-DATE
+> Task :capacitor-android:preBuild UP-TO-DATE
+> Task :capacitor-android:preDebugBuild UP-TO-DATE
+> Task :capacitor-android:writeDebugAarMetadata UP-TO-DATE
+> Task :capacitor-cordova-android-plugins:preBuild UP-TO-DATE
+> Task :capacitor-cordova-android-plugins:preDebugBuild UP-TO-DATE
+> Task :capacitor-cordova-android-plugins:writeDebugAarMetadata UP-TO-DATE
+> Task :app:checkDebugAarMetadata UP-TO-DATE
+> Task :capacitor-android:processDebugNavigationResources UP-TO-DATE
+> Task :capacitor-cordova-android-plugins:processDebugNavigationResources UP-TO-DATE
+> Task :app:processDebugNavigationResources UP-TO-DATE
+> Task :app:compileDebugNavigationResources UP-TO-DATE
+> Task :app:generateDebugResValues UP-TO-DATE
+> Task :capacitor-android:generateDebugResValues UP-TO-DATE
+> Task :capacitor-android:generateDebugResources UP-TO-DATE
+> Task :capacitor-android:packageDebugResources UP-TO-DATE
+> Task :capacitor-cordova-android-plugins:generateDebugResValues UP-TO-DATE
+> Task :capacitor-cordova-android-plugins:generateDebugResources UP-TO-DATE
+> Task :capacitor-cordova-android-plugins:packageDebugResources UP-TO-DATE
+> Task :app:mapDebugSourceSetPaths UP-TO-DATE
+> Task :app:generateDebugResources UP-TO-DATE
+> Task :app:mergeDebugResources UP-TO-DATE
+> Task :app:packageDebugResources UP-TO-DATE
+> Task :app:parseDebugLocalResources UP-TO-DATE
+> Task :app:createDebugCompatibleScreenManifests UP-TO-DATE
+> Task :app:extractDeepLinksDebug UP-TO-DATE
+> Task :capacitor-android:extractDeepLinksDebug UP-TO-DATE
+> Task :capacitor-android:processDebugManifest UP-TO-DATE
+> Task :capacitor-cordova-android-plugins:extractDeepLinksDebug UP-TO-DATE
+> Task :capacitor-cordova-android-plugins:processDebugManifest UP-TO-DATE
+> Task :app:processDebugMainManifest UP-TO-DATE
+> Task :app:processDebugManifest UP-TO-DATE
+> Task :app:processDebugManifestForPackage UP-TO-DATE
+> Task :capacitor-android:compileDebugLibraryResources UP-TO-DATE
+> Task :capacitor-android:parseDebugLocalResources UP-TO-DATE
+> Task :capacitor-android:generateDebugRFile UP-TO-DATE
+> Task :capacitor-cordova-android-plugins:compileDebugLibraryResources UP-TO-DATE
+> Task :capacitor-cordova-android-plugins:parseDebugLocalResources UP-TO-DATE
+> Task :capacitor-cordova-android-plugins:generateDebugRFile UP-TO-DATE
+> Task :app:processDebugResources UP-TO-DATE
+> Task :capacitor-android:javaPreCompileDebug UP-TO-DATE
+> Task :capacitor-android:compileDebugJavaWithJavac UP-TO-DATE
+> Task :capacitor-android:bundleLibCompileToJarDebug UP-TO-DATE
+> Task :capacitor-cordova-android-plugins:javaPreCompileDebug UP-TO-DATE
+> Task :capacitor-cordova-android-plugins:compileDebugJavaWithJavac NO-SOURCE
+> Task :capacitor-cordova-android-plugins:bundleLibCompileToJarDebug UP-TO-DATE
+> Task :app:compileDebugJavaWithJavac UP-TO-DATE
+> Task :app:mergeDebugShaders UP-TO-DATE
+> Task :app:compileDebugShaders NO-SOURCE
+> Task :app:generateDebugAssets UP-TO-DATE
+> Task :capacitor-android:mergeDebugShaders UP-TO-DATE
+> Task :capacitor-android:compileDebugShaders NO-SOURCE
+> Task :capacitor-android:generateDebugAssets UP-TO-DATE
+> Task :capacitor-android:mergeDebugAssets UP-TO-DATE
+> Task :capacitor-cordova-android-plugins:mergeDebugShaders UP-TO-DATE
+> Task :capacitor-cordova-android-plugins:compileDebugShaders NO-SOURCE
+> Task :capacitor-cordova-android-plugins:generateDebugAssets UP-TO-DATE
+> Task :capacitor-cordova-android-plugins:mergeDebugAssets UP-TO-DATE
+> Task :app:mergeDebugAssets
+> Task :capacitor-android:bundleLibRuntimeToJarDebug UP-TO-DATE
+> Task :capacitor-cordova-android-plugins:bundleLibRuntimeToJarDebug UP-TO-DATE
+> Task :app:desugarDebugFileDependencies UP-TO-DATE
+> Task :app:dexBuilderDebug UP-TO-DATE
+> Task :app:processDebugJavaRes NO-SOURCE
+> Task :capacitor-android:processDebugJavaRes NO-SOURCE
+> Task :capacitor-cordova-android-plugins:processDebugJavaRes NO-SOURCE
+> Task :app:compressDebugAssets
+> Task :app:mergeDebugJavaResource UP-TO-DATE
+> Task :app:mergeDebugGlobalSynthetics UP-TO-DATE
+> Task :app:checkDebugDuplicateClasses UP-TO-DATE
+> Task :app:mergeExtDexDebug UP-TO-DATE
+> Task :capacitor-android:bundleLibRuntimeToDirDebug UP-TO-DATE
+> Task :capacitor-cordova-android-plugins:bundleLibRuntimeToDirDebug UP-TO-DATE
+> Task :app:mergeProjectDexDebug UP-TO-DATE
+> Task :app:mergeDebugJniLibFolders UP-TO-DATE
+> Task :capacitor-android:mergeDebugJniLibFolders UP-TO-DATE
+> Task :capacitor-android:mergeDebugNativeLibs NO-SOURCE
+> Task :capacitor-android:copyDebugJniLibsProjectOnly UP-TO-DATE
+> Task :capacitor-cordova-android-plugins:mergeDebugJniLibFolders UP-TO-DATE
+> Task :capacitor-cordova-android-plugins:mergeDebugNativeLibs NO-SOURCE
+> Task :capacitor-cordova-android-plugins:copyDebugJniLibsProjectOnly UP-TO-DATE
+> Task :app:mergeDebugNativeLibs NO-SOURCE
+> Task :app:mergeLibDexDebug UP-TO-DATE
+> Task :app:stripDebugDebugSymbols NO-SOURCE
+> Task :app:validateSigningDebug UP-TO-DATE
+> Task :app:writeDebugAppMetadata UP-TO-DATE
+> Task :app:writeDebugSigningConfigVersions UP-TO-DATE
+> Task :capacitor-android:checkDebugAarMetadata UP-TO-DATE
+> Task :capacitor-android:stripDebugDebugSymbols NO-SOURCE
+> Task :capacitor-android:copyDebugJniLibsProjectAndLocalJars UP-TO-DATE
+> Task :capacitor-android:extractDebugAnnotations UP-TO-DATE
+> Task :capacitor-android:extractDeepLinksForAarDebug UP-TO-DATE
+> Task :capacitor-android:mergeDebugGeneratedProguardFiles UP-TO-DATE
+> Task :capacitor-android:mergeDebugConsumerProguardFiles UP-TO-DATE
+> Task :capacitor-android:prepareDebugArtProfile UP-TO-DATE
+> Task :capacitor-android:prepareLintJarForPublish UP-TO-DATE
+> Task :capacitor-android:mergeDebugJavaResource UP-TO-DATE
+> Task :capacitor-android:syncDebugLibJars UP-TO-DATE
+> Task :capacitor-android:bundleDebugAar UP-TO-DATE
+> Task :capacitor-android:assembleDebug UP-TO-DATE
+> Task :capacitor-cordova-android-plugins:checkDebugAarMetadata UP-TO-DATE
+> Task :app:packageDebug
+> Task :app:createDebugApkListingFileRedirect UP-TO-DATE
+> Task :app:assembleDebug
+> Task :capacitor-cordova-android-plugins:stripDebugDebugSymbols NO-SOURCE
+> Task :capacitor-cordova-android-plugins:copyDebugJniLibsProjectAndLocalJars UP-TO-DATE
+> Task :capacitor-cordova-android-plugins:extractDebugAnnotations UP-TO-DATE
+> Task :capacitor-cordova-android-plugins:extractDeepLinksForAarDebug UP-TO-DATE
+> Task :capacitor-cordova-android-plugins:mergeDebugGeneratedProguardFiles UP-TO-DATE
+> Task :capacitor-cordova-android-plugins:mergeDebugConsumerProguardFiles UP-TO-DATE
+> Task :capacitor-cordova-android-plugins:prepareDebugArtProfile UP-TO-DATE
+> Task :capacitor-cordova-android-plugins:prepareLintJarForPublish UP-TO-DATE
+> Task :capacitor-cordova-android-plugins:mergeDebugJavaResource UP-TO-DATE
+> Task :capacitor-cordova-android-plugins:syncDebugLibJars UP-TO-DATE
+> Task :capacitor-cordova-android-plugins:bundleDebugAar UP-TO-DATE
+> Task :capacitor-cordova-android-plugins:assembleDebug UP-TO-DATE
+
+BUILD SUCCESSFUL in 1m 13s
+93 actionable tasks: 3 executed, 90 up-to-date
+Performing Streamed Install
+Success
+
+[2026-10-02T15:50:05.183Z] COMMAND: node scripts/check-tablet.mjs D:/Users/suman/AppData/Local/Android/Sdk/platform-tools/platform-tools/adb.exe 7f59b005f2af
+PASS cold start 1: themes, viewport, simulated offline reload, startup error regression
+PASS cold start 2: themes, viewport, simulated offline reload, startup error regression
+PASS cold start 3: themes, viewport, simulated offline reload, startup error regression
+
+RESULT: exit=0 signal=none
+
+[2026-10-03T16:09:52.889Z] COMMAND: node --test tests/foundation.test.mjs tests/profiles.test.ts
+✔ FND-008: domain imports do not depend on presentation, databases or vendors (8.175ms)
+✔ Android shell bundles exported assets without a live server URL (17.4717ms)
+✔ Session contract preserves monthly scheduling, voice and on-device inference (0.6687ms)
+✔ PROF-001/002/003/007: create isolated profiles without email, unlock, persist settings (656.6445ms)
+✔ PROF-004/005: incorrect credentials and stale sessions cannot access settings (345.1253ms)
+✔ STORE-003: duplicate auth insertion rolls back profile creation transaction (137.9886ms)
+✔ U-006/STORE-005/006: reopen versioned DB preserves populated profiles (not an upgrade test) (250.9665ms)
+✔ SEC: persisted records contain no password, raw key or plaintext preferences (138.744ms)
+✔ SEC: swapped profile ciphertext and tampered ciphertext fail authentication (265.4422ms)
+✔ PROF: persisted throttling prevents further KDF attempts until timeout (915.546ms)
+✔ U-007: invalid profile/settings input does not write partial records (226.5862ms)
+ℹ tests 11
+ℹ suites 0
+ℹ pass 11
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 4447.9139
+
+RESULT: exit=0 signal=none
+
+[2026-10-03T16:16:03.340Z] COMMAND: node --test tests/foundation.test.mjs tests/profiles.test.ts
+✔ FND-008: domain imports do not depend on presentation, databases or vendors (29.1074ms)
+✔ Android shell bundles exported assets without a live server URL (3.0169ms)
+✔ Session contract preserves monthly scheduling, voice and on-device inference (23.6055ms)
+✔ PROF-001/002/003/007: create isolated profiles without email, unlock, persist settings (697.4291ms)
+✔ PROF-004/005: incorrect credentials and stale sessions cannot access settings (347.5796ms)
+✔ STORE-003: duplicate auth insertion rolls back profile creation transaction (114.031ms)
+✔ U-006/STORE-005/006: reopen versioned DB preserves populated profiles (not an upgrade test) (243.1095ms)
+✔ SEC: persisted records contain no password, raw key or plaintext preferences (114.7986ms)
+✔ SEC: swapped profile ciphertext and tampered ciphertext fail authentication (247.6417ms)
+✔ PROF: persisted throttling prevents further KDF attempts until timeout (1009.5208ms)
+✔ U-007: invalid profile/settings input does not write partial records (314.092ms)
+✔ STORE-007/U-009: populated version-1 migration preserves credentials and encrypted settings (306.3518ms)
+✔ PROF-005: lock during decryption invalidates the pending result (279.3121ms)
+ℹ tests 13
+ℹ suites 0
+ℹ pass 13
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 4664.5968
+
+RESULT: exit=0 signal=none
+
+[2026-10-03T16:16:37.422Z] COMMAND: node node_modules/next/dist/bin/next build apps/web
+▲ Next.js 16.3.6 (Turbopack)
+✓ Running next.config.ts took 2.3s
+
+  Creating an optimized production build ...
+✓ Compiled successfully in 33.4s
+  Running TypeScript ...
+  Finished TypeScript in 20.3s ...
+  Collecting page data using 4 workers ...
+  Generating static pages using 4 workers (0/3) ...
+✓ Generating static pages using 4 workers (3/3) in 917ms
+  Finalizing page optimization ...
+
+Route (app)
+┌ ○ /
+└ ○ /_not-found
+
+
+○  (Static)  prerendered as static content
+
+
+RESULT: exit=0 signal=none
+
+[2026-10-03T16:19:58.661Z] COMMAND: node node_modules/@playwright/test/cli.js test
+[WebServer] (node:24232) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+Running 3 tests using 3 workers
+
+(node:17480) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:28204) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:27840) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  x  2 [tablet-portrait] › tests\e2e\shell.spec.ts:3:1 › PROF-001..005/007 THEME-001: create, persist, lock, switch and reject wrong password (2.9s)
+  x  3 [phone] › tests\e2e\shell.spec.ts:3:1 › PROF-001..005/007 THEME-001: create, persist, lock, switch and reject wrong password (3.0s)
+  x  1 [tablet-landscape] › tests\e2e\shell.spec.ts:3:1 › PROF-001..005/007 THEME-001: create, persist, lock, switch and reject wrong password (3.1s)
+
+
+  1) [tablet-landscape] › tests\e2e\shell.spec.ts:3:1 › PROF-001..005/007 THEME-001: create, persist, lock, switch and reject wrong password 
+
+    Error: locator.check: Clicking the checkbox did not change its state
+    Call log:
+      - waiting for getByRole('radio', { name: 'High contrast' })
+        - locator resolved to <input type="radio" name="theme"/>
+      - attempting click action
+        - waiting for element to be visible, enabled and stable
+        - element is visible, enabled and stable
+        - scrolling into view if needed
+        - done scrolling
+        - performing click action
+        - click action done
+        - waiting for scheduled navigations to finish
+        - navigations have finished
+
+
+      10 |   await expect(page.getByRole('heading',{level:1})).toContainText('Welcome, Profile A');
+      11 |   for(const name of ['Solid','High contrast','Glass','Solid']){
+    > 12 |     await page.getByRole('radio',{name,exact:false}).check();
+         |                                                      ^
+      13 |     await expect(page.getByRole('status')).toHaveText('Settings saved on this device.');
+      14 |     await expect(page.getByRole('radio',{name,exact:false})).toBeChecked();
+      15 |   }
+        at D:\D_downloads\omnivae-specs\omnivae-specs\tests\e2e\shell.spec.ts:12:54
+
+    Error Context: test-results\shell-PROF-001-005-007-THE-f0c5d-h-and-reject-wrong-password-tablet-landscape\error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results\shell-PROF-001-005-007-THE-f0c5d-h-and-reject-wrong-password-tablet-landscape\trace.zip
+    Usage:
+
+        npx playwright show-trace test-results\shell-PROF-001-005-007-THE-f0c5d-h-and-reject-wrong-password-tablet-landscape\trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  2) [tablet-portrait] › tests\e2e\shell.spec.ts:3:1 › PROF-001..005/007 THEME-001: create, persist, lock, switch and reject wrong password 
+
+    Error: locator.check: Clicking the checkbox did not change its state
+    Call log:
+      - waiting for getByRole('radio', { name: 'Solid' })
+        - locator resolved to <input type="radio" name="theme"/>
+      - attempting click action
+        - waiting for element to be visible, enabled and stable
+        - element is visible, enabled and stable
+        - scrolling into view if needed
+        - done scrolling
+        - performing click action
+        - click action done
+        - waiting for scheduled navigations to finish
+        - navigations have finished
+
+
+      10 |   await expect(page.getByRole('heading',{level:1})).toContainText('Welcome, Profile A');
+      11 |   for(const name of ['Solid','High contrast','Glass','Solid']){
+    > 12 |     await page.getByRole('radio',{name,exact:false}).check();
+         |                                                      ^
+      13 |     await expect(page.getByRole('status')).toHaveText('Settings saved on this device.');
+      14 |     await expect(page.getByRole('radio',{name,exact:false})).toBeChecked();
+      15 |   }
+        at D:\D_downloads\omnivae-specs\omnivae-specs\tests\e2e\shell.spec.ts:12:54
+
+    Error Context: test-results\shell-PROF-001-005-007-THE-f0c5d-h-and-reject-wrong-password-tablet-portrait\error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results\shell-PROF-001-005-007-THE-f0c5d-h-and-reject-wrong-password-tablet-portrait\trace.zip
+    Usage:
+
+        npx playwright show-trace test-results\shell-PROF-001-005-007-THE-f0c5d-h-and-reject-wrong-password-tablet-portrait\trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  3) [phone] › tests\e2e\shell.spec.ts:3:1 › PROF-001..005/007 THEME-001: create, persist, lock, switch and reject wrong password 
+
+    Error: locator.check: Clicking the checkbox did not change its state
+    Call log:
+      - waiting for getByRole('radio', { name: 'High contrast' })
+        - locator resolved to <input type="radio" name="theme"/>
+      - attempting click action
+        - waiting for element to be visible, enabled and stable
+        - element is visible, enabled and stable
+        - scrolling into view if needed
+        - done scrolling
+        - performing click action
+        - click action done
+        - waiting for scheduled navigations to finish
+        - navigations have finished
+
+
+      10 |   await expect(page.getByRole('heading',{level:1})).toContainText('Welcome, Profile A');
+      11 |   for(const name of ['Solid','High contrast','Glass','Solid']){
+    > 12 |     await page.getByRole('radio',{name,exact:false}).check();
+         |                                                      ^
+      13 |     await expect(page.getByRole('status')).toHaveText('Settings saved on this device.');
+      14 |     await expect(page.getByRole('radio',{name,exact:false})).toBeChecked();
+      15 |   }
+        at D:\D_downloads\omnivae-specs\omnivae-specs\tests\e2e\shell.spec.ts:12:54
+
+    Error Context: test-results\shell-PROF-001-005-007-THE-f0c5d-h-and-reject-wrong-password-phone\error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results\shell-PROF-001-005-007-THE-f0c5d-h-and-reject-wrong-password-phone\trace.zip
+    Usage:
+
+        npx playwright show-trace test-results\shell-PROF-001-005-007-THE-f0c5d-h-and-reject-wrong-password-phone\trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  3 failed
+    [tablet-landscape] › tests\e2e\shell.spec.ts:3:1 › PROF-001..005/007 THEME-001: create, persist, lock, switch and reject wrong password 
+    [tablet-portrait] › tests\e2e\shell.spec.ts:3:1 › PROF-001..005/007 THEME-001: create, persist, lock, switch and reject wrong password 
+    [phone] › tests\e2e\shell.spec.ts:3:1 › PROF-001..005/007 THEME-001: create, persist, lock, switch and reject wrong password 
+
+RESULT: exit=1 signal=none
+
+[2026-10-03T16:30:22.588Z] COMMAND: node --test tests/foundation.test.mjs tests/profiles.test.ts tests/planning.test.ts
+✔ FND-008: domain imports do not depend on presentation, databases or vendors (3.0774ms)
+✔ Android shell bundles exported assets without a live server URL (0.7608ms)
+✔ Session contract preserves monthly scheduling, voice and on-device inference (14.9487ms)
+✔ TASK-001..006/012: CRUD and durable completion/reopen/cancel history (735.1356ms)
+✔ U-002/003/004 SEC-ISOLATION-001..003: foreign IDs cannot read, update, delete, link or search (534.4248ms)
+✔ NOTE-001..006 TASK-008/010/011 GOAL-008: source note preserved, scoped links, derived progress and deletion (381.5227ms)
+✔ GOAL-002/003/004: cycle prevention and milestone evidence (383.3533ms)
+✔ TASK-007 CAL-001/002/004/006: date and range validation without partial writes (349.7754ms)
+✔ CAL-003 PROG-007/008: IANA timezone, DST gaps/folds and leap days (5.8454ms)
+✔ STORE-003 U-007: stale writes and partial atomic batches preserve earlier data (350.406ms)
+✔ PROF-001/002/003/007: create isolated profiles without email, unlock, persist settings (824.4208ms)
+✔ PROF-004/005: incorrect credentials and stale sessions cannot access settings (426.055ms)
+✔ STORE-003: duplicate auth insertion rolls back profile creation transaction (116.5206ms)
+✔ U-006/STORE-005/006: reopen versioned DB preserves populated profiles (not an upgrade test) (244.4521ms)
+✔ SEC: persisted records contain no password, raw key or plaintext preferences (106.3353ms)
+✔ SEC: swapped profile ciphertext and tampered ciphertext fail authentication (260.8178ms)
+✔ PROF: persisted throttling prevents further KDF attempts until timeout (832.7525ms)
+✔ U-007: invalid profile/settings input does not write partial records (242.8778ms)
+✔ STORE-007/U-009: populated version-1 migration preserves credentials and encrypted settings (225.4727ms)
+✔ PROF-005: lock during decryption invalidates the pending result (225.0494ms)
+ℹ tests 20
+ℹ suites 0
+ℹ pass 20
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 3942.7089
+
+RESULT: exit=0 signal=none
+
+[2026-10-03T16:31:40.125Z] COMMAND: node node_modules/next/dist/bin/next build apps/web
+▲ Next.js 16.3.6 (Turbopack)
+✓ Running next.config.ts took 1140ms
+
+  Creating an optimized production build ...
+✓ Compiled successfully in 13.1s
+  Running TypeScript ...
+  Finished TypeScript in 2.5s ...
+  Collecting page data using 4 workers ...
+  Generating static pages using 4 workers (0/3) ...
+✓ Generating static pages using 4 workers (3/3) in 682ms
+  Finalizing page optimization ...
+
+Route (app)
+┌ ○ /
+└ ○ /_not-found
+
+
+○  (Static)  prerendered as static content
+
+
+RESULT: exit=0 signal=none
+
+[2026-10-03T16:33:58.621Z] COMMAND: node node_modules/next/dist/bin/next build apps/web
+▲ Next.js 16.3.6 (Turbopack)
+✓ Running next.config.ts took 31ms
+
+  Creating an optimized production build ...
+✓ Compiled successfully in 364ms
+  Running TypeScript ...
+  Finished TypeScript in 1800ms ...
+  Collecting page data using 4 workers ...
+  Generating static pages using 4 workers (0/3) ...
+✓ Generating static pages using 4 workers (3/3) in 507ms
+  Finalizing page optimization ...
+
+Route (app)
+┌ ○ /
+└ ○ /_not-found
+
+
+○  (Static)  prerendered as static content
+
+
+RESULT: exit=0 signal=none
+
+[2026-10-03T16:34:35.343Z] COMMAND: node node_modules/@playwright/test/cli.js test
+[WebServer] (node:18280) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+Running 6 tests using 4 workers
+
+(node:13060) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:28796) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:27248) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:10076) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  x  3 [tablet-portrait] › tests\e2e\shell.spec.ts:3:1 › PROF-001..005/007 THEME-001: create, persist, lock, switch and reject wrong password (4.0s)
+  ok 4 [tablet-portrait] › tests\e2e\planning.spec.ts:3:1 › P2 offline task/note/calendar/journal flow and reload (7.2s)
+  ok 2 [tablet-landscape] › tests\e2e\planning.spec.ts:3:1 › P2 offline task/note/calendar/journal flow and reload (7.5s)
+  x  1 [tablet-landscape] › tests\e2e\shell.spec.ts:3:1 › PROF-001..005/007 THEME-001: create, persist, lock, switch and reject wrong password (4.7s)
+(node:20420) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:19424) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ok 5 [phone] › tests\e2e\planning.spec.ts:3:1 › P2 offline task/note/calendar/journal flow and reload (3.4s)
+  x  6 [phone] › tests\e2e\shell.spec.ts:3:1 › PROF-001..005/007 THEME-001: create, persist, lock, switch and reject wrong password (2.4s)
+
+
+  1) [tablet-landscape] › tests\e2e\shell.spec.ts:3:1 › PROF-001..005/007 THEME-001: create, persist, lock, switch and reject wrong password 
+
+    Error: expect(locator).toContainText(expected) failed
+
+    Locator: getByRole('alert')
+    Expected substring: "Unable to unlock"
+    Error: strict mode violation: getByRole('alert') resolved to 2 elements:
+        1) <p role="alert" class="message error">Unable to unlock this profile.</p> aka getByText('Unable to unlock this profile.')
+        2) <div role="alert" aria-live="assertive" id="__next-route-announcer__"></div> aka locator('[id="__next-route-announcer__"]')
+
+    Call log:
+      - Expect "toContainText" getByRole('alert') with timeout 5000ms
+      - waiting for getByRole('alert')
+        4 × locator resolved to <div role="alert" aria-live="assertive" id="__next-route-announcer__"></div>
+          - unexpected value ""
+
+
+      18 |   await page.getByLabel('Password',{exact:true}).fill('wrong password');
+      19 |   await page.getByRole('button',{name:'Unlock profile',exact:true}).click();
+    > 20 |   await expect(page.getByRole('alert')).toContainText('Unable to unlock');
+         |                                         ^
+      21 |   await page.getByLabel('Password',{exact:true}).fill(password);
+      22 |   await page.getByRole('button',{name:'Unlock profile',exact:true}).click();
+      23 |   await expect(page.getByRole('radio',{name:'Solid',exact:false})).toBeChecked();
+        at D:\D_downloads\omnivae-specs\omnivae-specs\tests\e2e\shell.spec.ts:20:41
+
+    Error Context: test-results\shell-PROF-001-005-007-THE-f0c5d-h-and-reject-wrong-password-tablet-landscape\error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results\shell-PROF-001-005-007-THE-f0c5d-h-and-reject-wrong-password-tablet-landscape\trace.zip
+    Usage:
+
+        npx playwright show-trace test-results\shell-PROF-001-005-007-THE-f0c5d-h-and-reject-wrong-password-tablet-landscape\trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  2) [tablet-portrait] › tests\e2e\shell.spec.ts:3:1 › PROF-001..005/007 THEME-001: create, persist, lock, switch and reject wrong password 
+
+    Error: expect(locator).toContainText(expected) failed
+
+    Locator: getByRole('alert')
+    Expected substring: "Unable to unlock"
+    Error: strict mode violation: getByRole('alert') resolved to 2 elements:
+        1) <p role="alert" class="message error">Unable to unlock this profile.</p> aka getByText('Unable to unlock this profile.')
+        2) <div role="alert" aria-live="assertive" id="__next-route-announcer__"></div> aka locator('[id="__next-route-announcer__"]')
+
+    Call log:
+      - Expect "toContainText" getByRole('alert') with timeout 5000ms
+      - waiting for getByRole('alert')
+        4 × locator resolved to <div role="alert" aria-live="assertive" id="__next-route-announcer__"></div>
+          - unexpected value ""
+
+
+      18 |   await page.getByLabel('Password',{exact:true}).fill('wrong password');
+      19 |   await page.getByRole('button',{name:'Unlock profile',exact:true}).click();
+    > 20 |   await expect(page.getByRole('alert')).toContainText('Unable to unlock');
+         |                                         ^
+      21 |   await page.getByLabel('Password',{exact:true}).fill(password);
+      22 |   await page.getByRole('button',{name:'Unlock profile',exact:true}).click();
+      23 |   await expect(page.getByRole('radio',{name:'Solid',exact:false})).toBeChecked();
+        at D:\D_downloads\omnivae-specs\omnivae-specs\tests\e2e\shell.spec.ts:20:41
+
+    Error Context: test-results\shell-PROF-001-005-007-THE-f0c5d-h-and-reject-wrong-password-tablet-portrait\error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results\shell-PROF-001-005-007-THE-f0c5d-h-and-reject-wrong-password-tablet-portrait\trace.zip
+    Usage:
+
+        npx playwright show-trace test-results\shell-PROF-001-005-007-THE-f0c5d-h-and-reject-wrong-password-tablet-portrait\trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  3) [phone] › tests\e2e\shell.spec.ts:3:1 › PROF-001..005/007 THEME-001: create, persist, lock, switch and reject wrong password 
+
+    Error: expect(locator).toContainText(expected) failed
+
+    Locator: getByRole('alert')
+    Expected substring: "Unable to unlock"
+    Error: strict mode violation: getByRole('alert') resolved to 2 elements:
+        1) <p role="alert" class="message error">Unable to unlock this profile.</p> aka getByText('Unable to unlock this profile.')
+        2) <div role="alert" aria-live="assertive" id="__next-route-announcer__"></div> aka locator('[id="__next-route-announcer__"]')
+
+    Call log:
+      - Expect "toContainText" getByRole('alert') with timeout 5000ms
+      - waiting for getByRole('alert')
+        3 × locator resolved to <div role="alert" aria-live="assertive" id="__next-route-announcer__"></div>
+          - unexpected value ""
+
+
+      18 |   await page.getByLabel('Password',{exact:true}).fill('wrong password');
+      19 |   await page.getByRole('button',{name:'Unlock profile',exact:true}).click();
+    > 20 |   await expect(page.getByRole('alert')).toContainText('Unable to unlock');
+         |                                         ^
+      21 |   await page.getByLabel('Password',{exact:true}).fill(password);
+      22 |   await page.getByRole('button',{name:'Unlock profile',exact:true}).click();
+      23 |   await expect(page.getByRole('radio',{name:'Solid',exact:false})).toBeChecked();
+        at D:\D_downloads\omnivae-specs\omnivae-specs\tests\e2e\shell.spec.ts:20:41
+
+    Error Context: test-results\shell-PROF-001-005-007-THE-f0c5d-h-and-reject-wrong-password-phone\error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results\shell-PROF-001-005-007-THE-f0c5d-h-and-reject-wrong-password-phone\trace.zip
+    Usage:
+
+        npx playwright show-trace test-results\shell-PROF-001-005-007-THE-f0c5d-h-and-reject-wrong-password-phone\trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  3 failed
+    [tablet-landscape] › tests\e2e\shell.spec.ts:3:1 › PROF-001..005/007 THEME-001: create, persist, lock, switch and reject wrong password 
+    [tablet-portrait] › tests\e2e\shell.spec.ts:3:1 › PROF-001..005/007 THEME-001: create, persist, lock, switch and reject wrong password 
+    [phone] › tests\e2e\shell.spec.ts:3:1 › PROF-001..005/007 THEME-001: create, persist, lock, switch and reject wrong password 
+  3 passed (13.6s)
+
+RESULT: exit=1 signal=none
+
+[2026-10-03T16:35:29.126Z] COMMAND: node node_modules/@playwright/test/cli.js test
+[WebServer] (node:21180) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+Running 6 tests using 4 workers
+
+(node:29036) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:10736) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:17264) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:20024) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ok 1 [tablet-portrait] › tests\e2e\shell.spec.ts:3:1 › PROF-001..005/007 THEME-001: create, persist, lock, switch and reject wrong password (4.9s)
+  ok 2 [tablet-landscape] › tests\e2e\planning.spec.ts:3:1 › P2 offline task/note/calendar/journal flow and reload (6.6s)
+  ok 3 [tablet-landscape] › tests\e2e\shell.spec.ts:3:1 › PROF-001..005/007 THEME-001: create, persist, lock, switch and reject wrong password (7.1s)
+  ok 4 [tablet-portrait] › tests\e2e\planning.spec.ts:3:1 › P2 offline task/note/calendar/journal flow and reload (7.3s)
+(node:29336) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:26720) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ok 5 [phone] › tests\e2e\planning.spec.ts:3:1 › P2 offline task/note/calendar/journal flow and reload (3.3s)
+  ok 6 [phone] › tests\e2e\shell.spec.ts:3:1 › PROF-001..005/007 THEME-001: create, persist, lock, switch and reject wrong password (3.3s)
+
+  6 passed (13.7s)
+
+RESULT: exit=0 signal=none
+
+[2026-10-03T16:36:33.625Z] COMMAND: node --test tests/foundation.test.mjs tests/profiles.test.ts tests/planning.test.ts
+✔ FND-008: domain imports do not depend on presentation, databases or vendors (2.7652ms)
+✔ Android shell bundles exported assets without a live server URL (0.7886ms)
+✔ Session contract preserves monthly scheduling, voice and on-device inference (1.8149ms)
+✔ TASK-001..006/012: CRUD and durable completion/reopen/cancel history (627.0997ms)
+✔ U-002/003/004 SEC-ISOLATION-001..003: foreign IDs cannot read, update, delete, link or search (613.86ms)
+✔ NOTE-001..006 TASK-008/010/011 GOAL-008: source note preserved, scoped links, derived progress and deletion (362.3764ms)
+✔ GOAL-002/003/004: cycle prevention and milestone evidence (397.3489ms)
+✔ TASK-007 CAL-001/002/004/006: date and range validation without partial writes (443.9166ms)
+✔ CAL-003 PROG-007/008: IANA timezone, DST gaps/folds and leap days (3.2498ms)
+✔ STORE-003 U-007: stale writes and partial atomic batches preserve earlier data (424.6995ms)
+✔ PROF-001/002/003/007: create isolated profiles without email, unlock, persist settings (770.4212ms)
+✔ PROF-004/005: incorrect credentials and stale sessions cannot access settings (454.5963ms)
+✔ STORE-003: duplicate auth insertion rolls back profile creation transaction (120.6693ms)
+✔ U-006/STORE-005/006: reopen versioned DB preserves populated profiles (not an upgrade test) (229.8067ms)
+✔ SEC: persisted records contain no password, raw key or plaintext preferences (134.5527ms)
+✔ SEC: swapped profile ciphertext and tampered ciphertext fail authentication (260.2067ms)
+✔ PROF: persisted throttling prevents further KDF attempts until timeout (939.5267ms)
+✔ U-007: invalid profile/settings input does not write partial records (224.8108ms)
+✔ STORE-007/U-009: populated version-1 migration preserves credentials and encrypted settings (233.9782ms)
+✔ PROF-005: lock during decryption invalidates the pending result (234.5655ms)
+ℹ tests 20
+ℹ suites 0
+ℹ pass 20
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 3878.6625
+
+RESULT: exit=0 signal=none
+
+[2026-10-03T16:38:15.276Z] COMMAND: node node_modules/next/dist/bin/next build apps/web
+▲ Next.js 16.3.6 (Turbopack)
+✓ Running next.config.ts took 27ms
+
+  Creating an optimized production build ...
+✓ Compiled successfully in 370ms
+  Running TypeScript ...
+  Finished TypeScript in 1871ms ...
+  Collecting page data using 4 workers ...
+  Generating static pages using 4 workers (0/3) ...
+✓ Generating static pages using 4 workers (3/3) in 523ms
+  Finalizing page optimization ...
+
+Route (app)
+┌ ○ /
+└ ○ /_not-found
+
+
+○  (Static)  prerendered as static content
+
+
+RESULT: exit=0 signal=none
+
+[2026-10-03T16:39:23.803Z] COMMAND: node --test tests/sqlite-migrations.test.ts
+✔ STORE-005/006 native schema regression: each upgrade array entry executes as one statement (2.2108ms)
+✔ STORE-007: SQL migration preserves a populated v1 database and rolls back failed transaction (1.0476ms)
+ℹ tests 2
+ℹ suites 0
+ℹ pass 2
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 151.6328
+
+RESULT: exit=0 signal=none
+
+[2026-10-03T16:46:39.236Z] COMMAND: node --test tests/foundation.test.mjs tests/profiles.test.ts tests/planning.test.ts tests/sqlite-migrations.test.ts tests/progress.test.ts
+✔ FND-008: domain imports do not depend on presentation, databases or vendors (3.0789ms)
+✔ Android shell bundles exported assets without a live server URL (1.1601ms)
+✔ Session contract preserves monthly scheduling, voice and on-device inference (1.6269ms)
+✔ TASK-001..006/012: CRUD and durable completion/reopen/cancel history (690.3027ms)
+✔ U-002/003/004 SEC-ISOLATION-001..003: foreign IDs cannot read, update, delete, link or search (460.4526ms)
+✔ NOTE-001..006 TASK-008/010/011 GOAL-008: source note preserved, scoped links, derived progress and deletion (421.8957ms)
+✔ GOAL-002/003/004: cycle prevention and milestone evidence (542.935ms)
+✔ TASK-007 CAL-001/002/004/006: date and range validation without partial writes (361.7919ms)
+✔ CAL-003 PROG-007/008: IANA timezone, DST gaps/folds and leap days (2.9518ms)
+✔ STORE-003 U-007: stale writes and partial atomic batches preserve earlier data (348.1395ms)
+✔ PROF-001/002/003/007: create isolated profiles without email, unlock, persist settings (786.5412ms)
+✔ PROF-004/005: incorrect credentials and stale sessions cannot access settings (338.884ms)
+✔ STORE-003: duplicate auth insertion rolls back profile creation transaction (114.2447ms)
+✔ U-006/STORE-005/006: reopen versioned DB preserves populated profiles (not an upgrade test) (281.0551ms)
+✔ SEC: persisted records contain no password, raw key or plaintext preferences (172.0604ms)
+✔ SEC: swapped profile ciphertext and tampered ciphertext fail authentication (354.3543ms)
+✔ PROF: persisted throttling prevents further KDF attempts until timeout (831.7889ms)
+✔ U-007: invalid profile/settings input does not write partial records (222.6026ms)
+✔ STORE-007/U-009: populated version-1 migration preserves credentials and encrypted settings (235.3608ms)
+✔ PROF-005: lock during decryption invalidates the pending result (243.348ms)
+✔ PROG-001..009: timezone-derived day/week/month/year progress, edits, deletion and isolation (36.8058ms)
+✔ DASH-001..005: widget settings validation and old preferences defaults (0.9333ms)
+✔ STORE-005/006 native schema regression: each upgrade array entry executes as one statement (3.4651ms)
+✔ STORE-007: SQL migration preserves a populated v1 database and rolls back failed transaction (2.4284ms)
+ℹ tests 24
+ℹ suites 0
+ℹ pass 24
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 3899.6204
+
+RESULT: exit=0 signal=none
+
+[2026-10-03T16:48:34.229Z] COMMAND: node scripts/verify.mjs
+
+CHECK scripts/requirements.mjs --check
+PASS: 8 UTF-8 source files, balanced fences, 916 source sections current.
+
+CHECK scripts/verify-docs.mjs
+PASS DOC-001/002: all required files exist and are nonempty UTF-8
+PASS DOC-003/009: product headings and fence balance
+PASS DOC-004: completion-rule declarations present
+PASS DOC-005: named phase gates resolve
+PASS DOC-006: invariant terms present; semantic review still required
+PASS DOC-007: required logical entities present
+PASS DOC-010/FND-009 baseline pattern scan: no detected key/token patterns in scanned first-party files. Not a complete security audit.
+DOC-008 requires manual comparison of memory completion claims with current evidence; not automatically certified.
+
+CHECK --test tests/foundation.test.mjs tests/profiles.test.ts tests/planning.test.ts tests/sqlite-migrations.test.ts tests/progress.test.ts
+✔ FND-008: domain imports do not depend on presentation, databases or vendors (2.1184ms)
+✔ Android shell bundles exported assets without a live server URL (0.4877ms)
+✔ Session contract preserves monthly scheduling, voice and on-device inference (1.5483ms)
+✔ TASK-001..006/012: CRUD and durable completion/reopen/cancel history (577.123ms)
+✔ U-002/003/004 SEC-ISOLATION-001..003: foreign IDs cannot read, update, delete, link or search (507.7125ms)
+✔ NOTE-001..006 TASK-008/010/011 GOAL-008: source note preserved, scoped links, derived progress and deletion (379.043ms)
+✔ GOAL-002/003/004: cycle prevention and milestone evidence (372.015ms)
+✔ TASK-007 CAL-001/002/004/006: date and range validation without partial writes (454.0262ms)
+✔ CAL-003 PROG-007/008: IANA timezone, DST gaps/folds and leap days (5.2941ms)
+✔ STORE-003 U-007: stale writes and partial atomic batches preserve earlier data (429.6277ms)
+✔ PROF-001/002/003/007: create isolated profiles without email, unlock, persist settings (691.5222ms)
+✔ PROF-004/005: incorrect credentials and stale sessions cannot access settings (373.1566ms)
+✔ STORE-003: duplicate auth insertion rolls back profile creation transaction (128.6021ms)
+✔ U-006/STORE-005/006: reopen versioned DB preserves populated profiles (not an upgrade test) (236.7114ms)
+✔ SEC: persisted records contain no password, raw key or plaintext preferences (128.0587ms)
+✔ SEC: swapped profile ciphertext and tampered ciphertext fail authentication (250.0508ms)
+✔ PROF: persisted throttling prevents further KDF attempts until timeout (1014.7884ms)
+✔ U-007: invalid profile/settings input does not write partial records (287.3298ms)
+✔ STORE-007/U-009: populated version-1 migration preserves credentials and encrypted settings (262.2375ms)
+✔ PROF-005: lock during decryption invalidates the pending result (268.7939ms)
+✔ PROG-001..009: timezone-derived day/week/month/year progress, edits, deletion and isolation (26.3165ms)
+✔ DASH-001..005: widget settings validation and old preferences defaults (0.9384ms)
+✔ STORE-005/006 native schema regression: each upgrade array entry executes as one statement (3.4375ms)
+✔ STORE-007: SQL migration preserves a populated v1 database and rolls back failed transaction (1.9734ms)
+ℹ tests 24
+ℹ suites 0
+ℹ pass 24
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 3908.3545
+
+CHECK scripts/check-build-dependencies.mjs
+PASS: patched UUID preserves xcode build-tool ID generation
+
+CHECK node_modules/typescript/bin/tsc --noEmit
+
+CHECK node_modules/eslint/bin/eslint.js apps/web/app packages scripts tests capacitor.config.ts playwright.config.ts eslint.config.mjs --max-warnings=0
+
+CHECK node_modules/next/dist/bin/next build apps/web
+▲ Next.js 16.3.6 (Turbopack)
+✓ Running next.config.ts took 30ms
+
+  Creating an optimized production build ...
+
+> Build error occurred
+Error: Turbopack build failed with 1 error:
+./apps/web/app/planning-workspace.tsx
+Error: Reading source code for parsing failed
+An unexpected error happened while trying to read the source code to parse: failed to convert rope into string
+
+Caused by:
+- invalid utf-8 sequence of 1 bytes from index 9171
+
+Import traces:
+  Client Component Browser:
+    ./apps/web/app/planning-workspace.tsx [Client Component Browser]
+    ./apps/web/app/page.tsx [Client Component Browser]
+    ./apps/web/app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./apps/web/app/planning-workspace.tsx [Client Component SSR]
+    ./apps/web/app/page.tsx [Client Component SSR]
+    ./apps/web/app/page.tsx [Server Component]
+
+
+    at ignore-listed frames
+
+RESULT: exit=1 signal=none
+
+[2026-10-03T21:58:23.576Z] COMMAND: node scripts/verify.mjs
+
+CHECK scripts/requirements.mjs --check
+PASS: 8 UTF-8 source files, balanced fences, 916 source sections current.
+
+CHECK scripts/verify-docs.mjs
+PASS DOC-001/002: all required files exist and are nonempty UTF-8
+PASS DOC-003/009: product headings and fence balance
+PASS DOC-004: completion-rule declarations present
+PASS DOC-005: named phase gates resolve
+PASS DOC-006: invariant terms present; semantic review still required
+PASS DOC-007: required logical entities present
+PASS DOC-010/FND-009 baseline pattern scan: no detected key/token patterns in scanned first-party files. Not a complete security audit.
+DOC-008 requires manual comparison of memory completion claims with current evidence; not automatically certified.
+
+CHECK --test tests/foundation.test.mjs tests/profiles.test.ts tests/planning.test.ts tests/sqlite-migrations.test.ts tests/progress.test.ts
+✔ FND-008: domain imports do not depend on presentation, databases or vendors (2.033ms)
+✔ Android shell bundles exported assets without a live server URL (25.2204ms)
+✔ Session contract preserves monthly scheduling, voice and on-device inference (1.3809ms)
+✔ FND-002: all first-party source files are valid UTF-8 (4.8617ms)
+✔ TASK-001..006/012: CRUD and durable completion/reopen/cancel history (561.5358ms)
+✔ U-002/003/004 SEC-ISOLATION-001..003: foreign IDs cannot read, update, delete, link or search (526.0592ms)
+✔ NOTE-001..006 TASK-008/010/011 GOAL-008: source note preserved, scoped links, derived progress and deletion (483.2913ms)
+✔ GOAL-002/003/004: cycle prevention and milestone evidence (438.917ms)
+✔ TASK-007 CAL-001/002/004/006: date and range validation without partial writes (454.7655ms)
+✔ CAL-003 PROG-007/008: IANA timezone, DST gaps/folds and leap days (8.5915ms)
+✔ STORE-003 U-007: stale writes and partial atomic batches preserve earlier data (429.573ms)
+✔ PROF-001/002/003/007: create isolated profiles without email, unlock, persist settings (671.6748ms)
+✔ PROF-004/005: incorrect credentials and stale sessions cannot access settings (394.932ms)
+✔ STORE-003: duplicate auth insertion rolls back profile creation transaction (154.5126ms)
+✔ U-006/STORE-005/006: reopen versioned DB preserves populated profiles (not an upgrade test) (300.7992ms)
+✔ SEC: persisted records contain no password, raw key or plaintext preferences (145.1079ms)
+✔ SEC: swapped profile ciphertext and tampered ciphertext fail authentication (299.187ms)
+✔ PROF: persisted throttling prevents further KDF attempts until timeout (1028.2448ms)
+✔ U-007: invalid profile/settings input does not write partial records (219.943ms)
+✔ STORE-007/U-009: populated version-1 migration preserves credentials and encrypted settings (221.3408ms)
+✔ PROF-005: lock during decryption invalidates the pending result (241.3906ms)
+✔ PROG-001..009: timezone-derived day/week/month/year progress, edits, deletion and isolation (67.0946ms)
+✔ DASH-001..005: widget settings validation and old preferences defaults (0.5278ms)
+✔ STORE-005/006 native schema regression: each upgrade array entry executes as one statement (11.4427ms)
+✔ STORE-007: SQL migration preserves a populated v1 database and rolls back failed transaction (1.4054ms)
+ℹ tests 25
+ℹ suites 0
+ℹ pass 25
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 4924.7221
+
+CHECK scripts/check-build-dependencies.mjs
+PASS: patched UUID preserves xcode build-tool ID generation
+
+CHECK node_modules/typescript/bin/tsc --noEmit
+
+CHECK node_modules/eslint/bin/eslint.js apps/web/app packages scripts tests capacitor.config.ts playwright.config.ts eslint.config.mjs --max-warnings=0
+
+CHECK node_modules/next/dist/bin/next build apps/web
+▲ Next.js 16.3.6 (Turbopack)
+✓ Running next.config.ts took 1972ms
+
+  Creating an optimized production build ...
+✓ Compiled successfully in 22.6s
+  Running TypeScript ...
+  Finished TypeScript in 2.4s ...
+  Collecting page data using 4 workers ...
+  Generating static pages using 4 workers (0/3) ...
+✓ Generating static pages using 4 workers (3/3) in 559ms
+  Finalizing page optimization ...
+
+Route (app)
+┌ ○ /
+└ ○ /_not-found
+
+
+○  (Static)  prerendered as static content
+
+
+CHECK scripts/build-offline.mjs
+Offline shell generated: 29 static assets, omnivae-shell-366a5aba9a9974f2
+
+CHECK node_modules/@playwright/test/cli.js test
+[WebServer] (node:31324) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+Running 6 tests using 4 workers
+
+(node:30908) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:28176) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:24208) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:28448) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ok 4 [tablet-portrait] › tests\e2e\planning.spec.ts:3:1 › P2 offline task/note/calendar/journal flow and reload (6.3s)
+  ok 2 [tablet-landscape] › tests\e2e\planning.spec.ts:3:1 › P2 offline task/note/calendar/journal flow and reload (7.9s)
+  ok 1 [tablet-landscape] › tests\e2e\shell.spec.ts:3:1 › PROF-001..005/007 THEME-001: create, persist, lock, switch and reject wrong password (8.2s)
+  ok 3 [tablet-portrait] › tests\e2e\shell.spec.ts:3:1 › PROF-001..005/007 THEME-001: create, persist, lock, switch and reject wrong password (8.3s)
+(node:22660) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:28972) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ok 6 [phone] › tests\e2e\planning.spec.ts:3:1 › P2 offline task/note/calendar/journal flow and reload (3.3s)
+  ok 5 [phone] › tests\e2e\shell.spec.ts:3:1 › PROF-001..005/007 THEME-001: create, persist, lock, switch and reject wrong password (4.3s)
+
+  6 passed (16.6s)
+Web foundation checks passed. Native/device gates are separate and must not be inferred.
+
+RESULT: exit=0 signal=none
+
+[2026-10-03T22:26:35.543Z] COMMAND: node scripts/verify.mjs
+
+CHECK scripts/requirements.mjs --check
+PASS: 8 UTF-8 source files, balanced fences, 920 source sections current.
+
+CHECK scripts/verify-docs.mjs
+PASS DOC-001/002: all required files exist and are nonempty UTF-8
+PASS DOC-003/009: product headings and fence balance
+PASS DOC-004: completion-rule declarations present
+PASS DOC-005: named phase gates resolve
+PASS DOC-006: invariant terms present; semantic review still required
+PASS DOC-007: required logical entities present
+PASS DOC-010/FND-009 baseline pattern scan: no detected key/token patterns in scanned first-party files. Not a complete security audit.
+DOC-008 requires manual comparison of memory completion claims with current evidence; not automatically certified.
+
+CHECK --test tests/foundation.test.mjs tests/profiles.test.ts tests/planning.test.ts tests/sqlite-migrations.test.ts tests/calendar-view.test.ts tests/progress.test.ts
+✔ CAL-UI-010: local midnight, exclusive ends, profile scope and unscheduled completion (43.529ms)
+✔ CAL-UI-010: DST repeated hours retain distinguishable UTC offsets (6.6075ms)
+✔ FND-008: domain imports do not depend on presentation, databases or vendors (2.5431ms)
+✔ Android shell bundles exported assets without a live server URL (1.3932ms)
+✔ Session contract preserves monthly scheduling, voice and on-device inference (0.4499ms)
+✔ FND-002: all first-party source files are valid UTF-8 (6.1869ms)
+✔ TASK-001..006/012: CRUD and durable completion/reopen/cancel history (700.0308ms)
+✔ U-002/003/004 SEC-ISOLATION-001..003: foreign IDs cannot read, update, delete, link or search (581.7832ms)
+✔ NOTE-001..006 TASK-008/010/011 GOAL-008: source note preserved, scoped links, derived progress and deletion (425.7485ms)
+✔ GOAL-002/003/004: cycle prevention and milestone evidence (435.0762ms)
+✔ TASK-007 CAL-001/002/004/006: date and range validation without partial writes (365.0704ms)
+✔ CAL-003 PROG-007/008: IANA timezone, DST gaps/folds and leap days (3.4296ms)
+✔ STORE-003 U-007: stale writes and partial atomic batches preserve earlier data (357.6985ms)
+✔ TIME-001/002: timed task and goal deadlines persist, date-only goals remain supported (474.5362ms)
+✔ PROF-001/002/003/007: create isolated profiles without email, unlock, persist settings (836.9556ms)
+✔ PROF-004/005: incorrect credentials and stale sessions cannot access settings (445.1565ms)
+✔ STORE-003: duplicate auth insertion rolls back profile creation transaction (155.5014ms)
+✔ U-006/STORE-005/006: reopen versioned DB preserves populated profiles (not an upgrade test) (258.7518ms)
+✔ SEC: persisted records contain no password, raw key or plaintext preferences (154.4734ms)
+✔ SEC: swapped profile ciphertext and tampered ciphertext fail authentication (286.1118ms)
+✔ PROF: persisted throttling prevents further KDF attempts until timeout (858.8191ms)
+✔ U-007: invalid profile/settings input does not write partial records (232.1358ms)
+✔ STORE-007/U-009: populated version-1 migration preserves credentials and encrypted settings (246.2356ms)
+✔ PROF-005: lock during decryption invalidates the pending result (224.1769ms)
+✔ PROG-001..009: timezone-derived day/week/month/year progress, edits, deletion and isolation (37.6072ms)
+✔ DASH-001..005: widget settings validation and old preferences defaults (0.959ms)
+✔ STORE-005/006 native schema regression: each upgrade array entry executes as one statement (20.2831ms)
+✔ STORE-007: SQL migration preserves a populated v1 database and rolls back failed transaction (2.3049ms)
+ℹ tests 28
+ℹ suites 0
+ℹ pass 28
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 3984.1576
+
+CHECK scripts/check-build-dependencies.mjs
+PASS: patched UUID preserves xcode build-tool ID generation
+
+CHECK node_modules/typescript/bin/tsc --noEmit
+
+CHECK node_modules/eslint/bin/eslint.js apps/web/app packages scripts tests capacitor.config.ts playwright.config.ts eslint.config.mjs --max-warnings=0
+
+D:\D_downloads\omnivae-specs\omnivae-specs\apps\web\app\life-workspace.tsx
+  19:58  error  Do not assign to the variable `module`. See: https://nextjs.org/docs/messages/no-assign-module-variable  @next/next/no-assign-module-variable
+
+✖ 1 problem (1 error, 0 warnings)
+
+
+RESULT: exit=1 signal=none
+
+[2026-10-03T22:27:36.348Z] COMMAND: node scripts/verify.mjs
+
+CHECK scripts/requirements.mjs --check
+PASS: 8 UTF-8 source files, balanced fences, 920 source sections current.
+
+CHECK scripts/verify-docs.mjs
+PASS DOC-001/002: all required files exist and are nonempty UTF-8
+PASS DOC-003/009: product headings and fence balance
+PASS DOC-004: completion-rule declarations present
+PASS DOC-005: named phase gates resolve
+PASS DOC-006: invariant terms present; semantic review still required
+PASS DOC-007: required logical entities present
+PASS DOC-010/FND-009 baseline pattern scan: no detected key/token patterns in scanned first-party files. Not a complete security audit.
+DOC-008 requires manual comparison of memory completion claims with current evidence; not automatically certified.
+
+CHECK --test tests/foundation.test.mjs tests/profiles.test.ts tests/planning.test.ts tests/sqlite-migrations.test.ts tests/calendar-view.test.ts tests/progress.test.ts
+✔ CAL-UI-010: local midnight, exclusive ends, profile scope and unscheduled completion (36.883ms)
+✔ CAL-UI-010: DST repeated hours retain distinguishable UTC offsets (4.6877ms)
+✔ FND-008: domain imports do not depend on presentation, databases or vendors (2.6919ms)
+✔ Android shell bundles exported assets without a live server URL (1.6596ms)
+✔ Session contract preserves monthly scheduling, voice and on-device inference (0.5832ms)
+✔ FND-002: all first-party source files are valid UTF-8 (5.3257ms)
+✔ TASK-001..006/012: CRUD and durable completion/reopen/cancel history (649.1234ms)
+✔ U-002/003/004 SEC-ISOLATION-001..003: foreign IDs cannot read, update, delete, link or search (580.8318ms)
+✔ NOTE-001..006 TASK-008/010/011 GOAL-008: source note preserved, scoped links, derived progress and deletion (432.4268ms)
+✔ GOAL-002/003/004: cycle prevention and milestone evidence (478.3374ms)
+✔ TASK-007 CAL-001/002/004/006: date and range validation without partial writes (352.4337ms)
+✔ CAL-003 PROG-007/008: IANA timezone, DST gaps/folds and leap days (3.0652ms)
+✔ STORE-003 U-007: stale writes and partial atomic batches preserve earlier data (367.1465ms)
+✔ TIME-001/002: timed task and goal deadlines persist, date-only goals remain supported (522.5514ms)
+✔ PROF-001/002/003/007: create isolated profiles without email, unlock, persist settings (768.7803ms)
+✔ PROF-004/005: incorrect credentials and stale sessions cannot access settings (437.625ms)
+✔ STORE-003: duplicate auth insertion rolls back profile creation transaction (149.3111ms)
+✔ U-006/STORE-005/006: reopen versioned DB preserves populated profiles (not an upgrade test) (276.9817ms)
+✔ SEC: persisted records contain no password, raw key or plaintext preferences (178.3832ms)
+✔ SEC: swapped profile ciphertext and tampered ciphertext fail authentication (290.9533ms)
+✔ PROF: persisted throttling prevents further KDF attempts until timeout (858.7506ms)
+✔ U-007: invalid profile/settings input does not write partial records (237.1459ms)
+✔ STORE-007/U-009: populated version-1 migration preserves credentials and encrypted settings (241.4485ms)
+✔ PROF-005: lock during decryption invalidates the pending result (228.5835ms)
+✔ PROG-001..009: timezone-derived day/week/month/year progress, edits, deletion and isolation (32.8612ms)
+✔ DASH-001..005: widget settings validation and old preferences defaults (0.9761ms)
+✔ STORE-005/006 native schema regression: each upgrade array entry executes as one statement (2.1376ms)
+✔ STORE-007: SQL migration preserves a populated v1 database and rolls back failed transaction (1.1687ms)
+ℹ tests 28
+ℹ suites 0
+ℹ pass 28
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 3959.4511
+
+CHECK scripts/check-build-dependencies.mjs
+PASS: patched UUID preserves xcode build-tool ID generation
+
+CHECK node_modules/typescript/bin/tsc --noEmit
+
+CHECK node_modules/eslint/bin/eslint.js apps/web/app packages scripts tests capacitor.config.ts playwright.config.ts eslint.config.mjs --max-warnings=0
+
+CHECK node_modules/next/dist/bin/next build apps/web
+▲ Next.js 16.3.6 (Turbopack)
+✓ Running next.config.ts took 1492ms
+
+  Creating an optimized production build ...
+✓ Compiled successfully in 11.5s
+  Running TypeScript ...
+  Finished TypeScript in 3.0s ...
+  Collecting page data using 4 workers ...
+  Generating static pages using 4 workers (0/3) ...
+✓ Generating static pages using 4 workers (3/3) in 524ms
+  Finalizing page optimization ...
+
+Route (app)
+┌ ○ /
+└ ○ /_not-found
+
+
+○  (Static)  prerendered as static content
+
+
+CHECK scripts/build-offline.mjs
+Offline shell generated: 29 static assets, omnivae-shell-0d15698a8392e0af
+
+CHECK node_modules/@playwright/test/cli.js test
+[WebServer] (node:30852) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+Running 6 tests using 4 workers
+
+(node:31124) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:17936) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:952) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:30376) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ok 3 [tablet-landscape] › tests\e2e\planning.spec.ts:3:1 › P2 offline task/note/calendar/journal flow and reload (6.1s)
+  ok 1 [tablet-portrait] › tests\e2e\planning.spec.ts:3:1 › P2 offline task/note/calendar/journal flow and reload (7.5s)
+  ok 4 [tablet-portrait] › tests\e2e\shell.spec.ts:3:1 › PROF-001..005/007 THEME-001: create, persist, lock, switch and reject wrong password (8.0s)
+  ok 2 [tablet-landscape] › tests\e2e\shell.spec.ts:3:1 › PROF-001..005/007 THEME-001: create, persist, lock, switch and reject wrong password (8.2s)
+(node:21816) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:12472) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ok 5 [phone] › tests\e2e\planning.spec.ts:3:1 › P2 offline task/note/calendar/journal flow and reload (2.9s)
+  ok 6 [phone] › tests\e2e\shell.spec.ts:3:1 › PROF-001..005/007 THEME-001: create, persist, lock, switch and reject wrong password (3.3s)
+
+  6 passed (15.4s)
+Web foundation checks passed. Native/device gates are separate and must not be inferred.
+
+RESULT: exit=0 signal=none
+
+[2026-10-03T22:45:40.245Z] COMMAND: node scripts/verify.mjs
+
+CHECK scripts/requirements.mjs --check
+PASS: 8 UTF-8 source files, balanced fences, 922 source sections current.
+
+CHECK scripts/verify-docs.mjs
+PASS DOC-001/002: all required files exist and are nonempty UTF-8
+PASS DOC-003/009: product headings and fence balance
+PASS DOC-004: completion-rule declarations present
+PASS DOC-005: named phase gates resolve
+PASS DOC-006: invariant terms present; semantic review still required
+PASS DOC-007: required logical entities present
+PASS DOC-010/FND-009 baseline pattern scan: no detected key/token patterns in scanned first-party files. Not a complete security audit.
+DOC-008 requires manual comparison of memory completion claims with current evidence; not automatically certified.
+
+CHECK --test tests/foundation.test.mjs tests/profiles.test.ts tests/planning.test.ts tests/sqlite-migrations.test.ts tests/ai-provider.test.ts tests/proposal.test.ts tests/calendar-view.test.ts tests/progress.test.ts
+✔ AI-PROV-005/006 AI-SEC-003: fixed origins, header-only credentials and structured responses (53.7777ms)
+✔ AI-PROV-002: sanitized error, incomplete output and cancellation (2.5969ms)
+✔ AI-SEC-001/004: separate encrypted vault, provider binding, profile isolation and locked denial (841.0752ms)
+✔ CAL-UI-010: local midnight, exclusive ends, profile scope and unscheduled completion (45.0002ms)
+✔ CAL-UI-010: DST repeated hours retain distinguishable UTC offsets (9.652ms)
+✔ FND-008: domain imports do not depend on presentation, databases or vendors (4.1448ms)
+✔ Android shell bundles exported assets without a live server URL (1.8853ms)
+✔ Session contract preserves monthly scheduling, voice and on-device inference (0.6476ms)
+✔ FND-002: all first-party source files are valid UTF-8 (10.3129ms)
+✔ TASK-001..006/012: CRUD and durable completion/reopen/cancel history (726.7966ms)
+✔ U-002/003/004 SEC-ISOLATION-001..003: foreign IDs cannot read, update, delete, link or search (577.9233ms)
+✔ NOTE-001..006 TASK-008/010/011 GOAL-008: source note preserved, scoped links, derived progress and deletion (546.2979ms)
+✔ GOAL-002/003/004: cycle prevention and milestone evidence (423.3829ms)
+✔ TASK-007 CAL-001/002/004/006: date and range validation without partial writes (473.745ms)
+✔ CAL-003 PROG-007/008: IANA timezone, DST gaps/folds and leap days (3.2631ms)
+✔ STORE-003 U-007: stale writes and partial atomic batches preserve earlier data (417.7227ms)
+✔ TIME-001/002: timed task and goal deadlines persist, date-only goals remain supported (476.5967ms)
+✔ PROF-001/002/003/007: create isolated profiles without email, unlock, persist settings (855.1149ms)
+✔ PROF-004/005: incorrect credentials and stale sessions cannot access settings (407.844ms)
+✔ STORE-003: duplicate auth insertion rolls back profile creation transaction (189.2165ms)
+✔ U-006/STORE-005/006: reopen versioned DB preserves populated profiles (not an upgrade test) (345.2277ms)
+✔ SEC: persisted records contain no password, raw key or plaintext preferences (125.8927ms)
+✔ SEC: swapped profile ciphertext and tampered ciphertext fail authentication (261.7007ms)
+✔ PROF: persisted throttling prevents further KDF attempts until timeout (1048.0184ms)
+✔ U-007: invalid profile/settings input does not write partial records (228.3134ms)
+✔ STORE-007/U-009: populated version-1 migration preserves credentials and encrypted settings (218.7745ms)
+✔ PROF-005: lock during decryption invalidates the pending result (227.4912ms)
+✔ PROG-001..009: timezone-derived day/week/month/year progress, edits, deletion and isolation (43.5282ms)
+✔ DASH-001..005: widget settings validation and old preferences defaults (1.1493ms)
+✔ AI-APPROVAL-001/002/004/005/010: strict structured preview, no mutation before approval, exact atomic apply (564.2031ms)
+✔ AI-APPROVAL-006/008/011/012: changed, destructive, expired and foreign approvals cannot write (540.2602ms)
+✔ AI-APPROVAL-009: commit failure rolls back approval and all records; stale snapshot requires reapproval (524.5544ms)
+✔ STORE-005/006 native schema regression: each upgrade array entry executes as one statement (3.1167ms)
+✔ STORE-007: SQL migration preserves a populated v1 database and rolls back failed transaction (1.5831ms)
+ℹ tests 34
+ℹ suites 0
+ℹ pass 34
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 4287.0064
+
+CHECK scripts/check-build-dependencies.mjs
+PASS: patched UUID preserves xcode build-tool ID generation
+
+CHECK node_modules/typescript/bin/tsc --noEmit
+
+CHECK node_modules/eslint/bin/eslint.js apps/web/app packages scripts tests capacitor.config.ts playwright.config.ts eslint.config.mjs --max-warnings=0
+
+CHECK node_modules/next/dist/bin/next build apps/web
+▲ Next.js 16.3.6 (Turbopack)
+✓ Running next.config.ts took 120ms
+
+  Creating an optimized production build ...
+✓ Compiled successfully in 1316ms
+  Running TypeScript ...
+  Finished TypeScript in 2.9s ...
+  Collecting page data using 4 workers ...
+  Generating static pages using 4 workers (0/3) ...
+✓ Generating static pages using 4 workers (3/3) in 668ms
+  Finalizing page optimization ...
+
+Route (app)
+┌ ○ /
+└ ○ /_not-found
+
+
+○  (Static)  prerendered as static content
+
+
+CHECK scripts/build-offline.mjs
+Offline shell generated: 29 static assets, omnivae-shell-c4301e68bf410a62
+
+CHECK node_modules/@playwright/test/cli.js test
+[WebServer] (node:30804) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+Running 9 tests using 4 workers
+
+(node:16304) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:29272) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:22328) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:18656) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ok 3 [tablet-landscape] › tests\e2e\planning.spec.ts:3:1 › P2 offline task/note/calendar/journal flow and reload (5.7s)
+  ok 2 [tablet-landscape] › tests\e2e\shell.spec.ts:3:1 › PROF-001..005/007 THEME-001: create, persist, lock, switch and reject wrong password (7.0s)
+(node:14240) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:2044) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  x  1 [tablet-landscape] › tests\e2e\ai.spec.ts:2:1 › AI controlled response: preview, exact approval, calendar refresh and offline history (8.3s)
+  x  4 [tablet-portrait] › tests\e2e\ai.spec.ts:2:1 › AI controlled response: preview, exact approval, calendar refresh and offline history (7.9s)
+(node:27344) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:21952) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ok 5 [tablet-portrait] › tests\e2e\planning.spec.ts:3:1 › P2 offline task/note/calendar/journal flow and reload (6.7s)
+  ok 8 [phone] › tests\e2e\planning.spec.ts:3:1 › P2 offline task/note/calendar/journal flow and reload (4.7s)
+  ok 6 [tablet-portrait] › tests\e2e\shell.spec.ts:3:1 › PROF-001..005/007 THEME-001: create, persist, lock, switch and reject wrong password (6.7s)
+(node:9704) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  x  7 [phone] › tests\e2e\ai.spec.ts:2:1 › AI controlled response: preview, exact approval, calendar refresh and offline history (7.5s)
+  ok 9 [phone] › tests\e2e\shell.spec.ts:3:1 › PROF-001..005/007 THEME-001: create, persist, lock, switch and reject wrong password (2.9s)
+
+
+  1) [tablet-landscape] › tests\e2e\ai.spec.ts:2:1 › AI controlled response: preview, exact approval, calendar refresh and offline history 
+
+    Error: expect(locator).toBeVisible() failed
+
+    Locator: getByRole('button', { name: 'Approve all 1 changes', exact: true })
+    Expected: visible
+    Timeout: 5000ms
+    Error: element(s) not found
+
+    Call log:
+      - Expect "toBeVisible" getByRole('button', { name: 'Approve all 1 changes', exact: true }) with timeout 5000ms
+      - waiting for getByRole('button', { name: 'Approve all 1 changes', exact: true })
+
+
+       5 |  await page.getByText('AI connection settings',{exact:true}).click();await page.getByLabel('Model ID',{exact:true}).fill('test-model');await page.getByLabel('API key',{exact:true}).fill('synthetic-provider-credential');
+       6 |  await page.getByRole('checkbox',{name:'Send this conversation and selected context to OpenAI for processing'}).check();await page.getByLabel('Your message',{exact:true}).fill('Plan reading tomorrow');await page.getByRole('button',{name:'Send to AI',exact:true}).click();
+    >  7 |  await expect(page.getByRole('button',{name:'Approve all 1 changes',exact:true})).toBeVisible();await expect(page.getByRole('button',{name:'Edit AI reading task',exact:true})).toHaveCount(0);
+         |                                                                                   ^
+       8 |  await page.getByRole('button',{name:'Approve all 1 changes',exact:true}).click();await expect(page.getByRole('status',{name:'AI status'})).toHaveText('Approved plan saved. Calendar and tasks updated.');
+       9 |  await page.getByLabel('Calendar date',{exact:true}).fill('2026-10-04');await expect(page.getByRole('button',{name:'Edit AI reading task',exact:true})).toBeVisible();
+      10 |  await page.getByRole('checkbox',{name:'Complete AI reading task',exact:true}).check();await expect(page.getByRole('checkbox',{name:'Complete AI reading task',exact:true})).toBeChecked();
+        at D:\D_downloads\omnivae-specs\omnivae-specs\tests\e2e\ai.spec.ts:7:83
+
+    Error Context: test-results\ai-AI-controlled-response--118f8-refresh-and-offline-history-tablet-landscape\error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results\ai-AI-controlled-response--118f8-refresh-and-offline-history-tablet-landscape\trace.zip
+    Usage:
+
+        npx playwright show-trace test-results\ai-AI-controlled-response--118f8-refresh-and-offline-history-tablet-landscape\trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  2) [tablet-portrait] › tests\e2e\ai.spec.ts:2:1 › AI controlled response: preview, exact approval, calendar refresh and offline history 
+
+    Error: expect(locator).toBeVisible() failed
+
+    Locator: getByRole('button', { name: 'Approve all 1 changes', exact: true })
+    Expected: visible
+    Timeout: 5000ms
+    Error: element(s) not found
+
+    Call log:
+      - Expect "toBeVisible" getByRole('button', { name: 'Approve all 1 changes', exact: true }) with timeout 5000ms
+      - waiting for getByRole('button', { name: 'Approve all 1 changes', exact: true })
+
+
+       5 |  await page.getByText('AI connection settings',{exact:true}).click();await page.getByLabel('Model ID',{exact:true}).fill('test-model');await page.getByLabel('API key',{exact:true}).fill('synthetic-provider-credential');
+       6 |  await page.getByRole('checkbox',{name:'Send this conversation and selected context to OpenAI for processing'}).check();await page.getByLabel('Your message',{exact:true}).fill('Plan reading tomorrow');await page.getByRole('button',{name:'Send to AI',exact:true}).click();
+    >  7 |  await expect(page.getByRole('button',{name:'Approve all 1 changes',exact:true})).toBeVisible();await expect(page.getByRole('button',{name:'Edit AI reading task',exact:true})).toHaveCount(0);
+         |                                                                                   ^
+       8 |  await page.getByRole('button',{name:'Approve all 1 changes',exact:true}).click();await expect(page.getByRole('status',{name:'AI status'})).toHaveText('Approved plan saved. Calendar and tasks updated.');
+       9 |  await page.getByLabel('Calendar date',{exact:true}).fill('2026-10-04');await expect(page.getByRole('button',{name:'Edit AI reading task',exact:true})).toBeVisible();
+      10 |  await page.getByRole('checkbox',{name:'Complete AI reading task',exact:true}).check();await expect(page.getByRole('checkbox',{name:'Complete AI reading task',exact:true})).toBeChecked();
+        at D:\D_downloads\omnivae-specs\omnivae-specs\tests\e2e\ai.spec.ts:7:83
+
+    Error Context: test-results\ai-AI-controlled-response--118f8-refresh-and-offline-history-tablet-portrait\error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results\ai-AI-controlled-response--118f8-refresh-and-offline-history-tablet-portrait\trace.zip
+    Usage:
+
+        npx playwright show-trace test-results\ai-AI-controlled-response--118f8-refresh-and-offline-history-tablet-portrait\trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  3) [phone] › tests\e2e\ai.spec.ts:2:1 › AI controlled response: preview, exact approval, calendar refresh and offline history 
+
+    Error: expect(locator).toBeVisible() failed
+
+    Locator: getByRole('button', { name: 'Approve all 1 changes', exact: true })
+    Expected: visible
+    Timeout: 5000ms
+    Error: element(s) not found
+
+    Call log:
+      - Expect "toBeVisible" getByRole('button', { name: 'Approve all 1 changes', exact: true }) with timeout 5000ms
+      - waiting for getByRole('button', { name: 'Approve all 1 changes', exact: true })
+
+
+       5 |  await page.getByText('AI connection settings',{exact:true}).click();await page.getByLabel('Model ID',{exact:true}).fill('test-model');await page.getByLabel('API key',{exact:true}).fill('synthetic-provider-credential');
+       6 |  await page.getByRole('checkbox',{name:'Send this conversation and selected context to OpenAI for processing'}).check();await page.getByLabel('Your message',{exact:true}).fill('Plan reading tomorrow');await page.getByRole('button',{name:'Send to AI',exact:true}).click();
+    >  7 |  await expect(page.getByRole('button',{name:'Approve all 1 changes',exact:true})).toBeVisible();await expect(page.getByRole('button',{name:'Edit AI reading task',exact:true})).toHaveCount(0);
+         |                                                                                   ^
+       8 |  await page.getByRole('button',{name:'Approve all 1 changes',exact:true}).click();await expect(page.getByRole('status',{name:'AI status'})).toHaveText('Approved plan saved. Calendar and tasks updated.');
+       9 |  await page.getByLabel('Calendar date',{exact:true}).fill('2026-10-04');await expect(page.getByRole('button',{name:'Edit AI reading task',exact:true})).toBeVisible();
+      10 |  await page.getByRole('checkbox',{name:'Complete AI reading task',exact:true}).check();await expect(page.getByRole('checkbox',{name:'Complete AI reading task',exact:true})).toBeChecked();
+        at D:\D_downloads\omnivae-specs\omnivae-specs\tests\e2e\ai.spec.ts:7:83
+
+    Error Context: test-results\ai-AI-controlled-response--118f8-refresh-and-offline-history-phone\error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results\ai-AI-controlled-response--118f8-refresh-and-offline-history-phone\trace.zip
+    Usage:
+
+        npx playwright show-trace test-results\ai-AI-controlled-response--118f8-refresh-and-offline-history-phone\trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  3 failed
+    [tablet-landscape] › tests\e2e\ai.spec.ts:2:1 › AI controlled response: preview, exact approval, calendar refresh and offline history 
+    [tablet-portrait] › tests\e2e\ai.spec.ts:2:1 › AI controlled response: preview, exact approval, calendar refresh and offline history 
+    [phone] › tests\e2e\ai.spec.ts:2:1 › AI controlled response: preview, exact approval, calendar refresh and offline history 
+  6 passed (20.4s)
+
+RESULT: exit=1 signal=none
+
+[2026-10-03T22:47:23.477Z] COMMAND: node scripts/verify.mjs
+
+CHECK scripts/requirements.mjs --check
+PASS: 8 UTF-8 source files, balanced fences, 922 source sections current.
+
+CHECK scripts/verify-docs.mjs
+PASS DOC-001/002: all required files exist and are nonempty UTF-8
+PASS DOC-003/009: product headings and fence balance
+PASS DOC-004: completion-rule declarations present
+PASS DOC-005: named phase gates resolve
+PASS DOC-006: invariant terms present; semantic review still required
+PASS DOC-007: required logical entities present
+PASS DOC-010/FND-009 baseline pattern scan: no detected key/token patterns in scanned first-party files. Not a complete security audit.
+DOC-008 requires manual comparison of memory completion claims with current evidence; not automatically certified.
+
+CHECK --test tests/foundation.test.mjs tests/profiles.test.ts tests/planning.test.ts tests/sqlite-migrations.test.ts tests/ai-provider.test.ts tests/proposal.test.ts tests/calendar-view.test.ts tests/progress.test.ts
+✔ AI-PROV-005/006 AI-SEC-003: fixed origins, header-only credentials and structured responses (81.5407ms)
+✔ AI-PROV-002: sanitized error, incomplete output and cancellation (3.3669ms)
+✔ AI-SEC-001/004: separate encrypted vault, provider binding, profile isolation and locked denial (1041.85ms)
+✔ CAL-UI-010: local midnight, exclusive ends, profile scope and unscheduled completion (39.4669ms)
+✔ CAL-UI-010: DST repeated hours retain distinguishable UTC offsets (5.8618ms)
+✔ FND-008: domain imports do not depend on presentation, databases or vendors (2.704ms)
+✔ Android shell bundles exported assets without a live server URL (1.6551ms)
+✔ Session contract preserves monthly scheduling, voice and on-device inference (0.51ms)
+✔ FND-002: all first-party source files are valid UTF-8 (8.4962ms)
+✔ TASK-001..006/012: CRUD and durable completion/reopen/cancel history (833.0805ms)
+✔ U-002/003/004 SEC-ISOLATION-001..003: foreign IDs cannot read, update, delete, link or search (663.4928ms)
+✔ NOTE-001..006 TASK-008/010/011 GOAL-008: source note preserved, scoped links, derived progress and deletion (481.0168ms)
+✔ GOAL-002/003/004: cycle prevention and milestone evidence (361.9433ms)
+✔ TASK-007 CAL-001/002/004/006: date and range validation without partial writes (401.7276ms)
+✔ CAL-003 PROG-007/008: IANA timezone, DST gaps/folds and leap days (3.2321ms)
+✔ STORE-003 U-007: stale writes and partial atomic batches preserve earlier data (339.1399ms)
+✔ TIME-001/002: timed task and goal deadlines persist, date-only goals remain supported (554.6569ms)
+✔ PROF-001/002/003/007: create isolated profiles without email, unlock, persist settings (1040.5111ms)
+✔ PROF-004/005: incorrect credentials and stale sessions cannot access settings (485.1131ms)
+✔ STORE-003: duplicate auth insertion rolls back profile creation transaction (155.9285ms)
+✔ U-006/STORE-005/006: reopen versioned DB preserves populated profiles (not an upgrade test) (266.4695ms)
+✔ SEC: persisted records contain no password, raw key or plaintext preferences (111.1492ms)
+✔ SEC: swapped profile ciphertext and tampered ciphertext fail authentication (249.8772ms)
+✔ PROF: persisted throttling prevents further KDF attempts until timeout (838.7689ms)
+✔ U-007: invalid profile/settings input does not write partial records (249.1549ms)
+✔ STORE-007/U-009: populated version-1 migration preserves credentials and encrypted settings (274.9903ms)
+✔ PROF-005: lock during decryption invalidates the pending result (214.6595ms)
+✔ PROG-001..009: timezone-derived day/week/month/year progress, edits, deletion and isolation (42.507ms)
+✔ DASH-001..005: widget settings validation and old preferences defaults (1.3382ms)
+✔ AI-APPROVAL-001/002/004/005/010: strict structured preview, no mutation before approval, exact atomic apply (651.2908ms)
+✔ AI-APPROVAL-006/008/011/012: changed, destructive, expired and foreign approvals cannot write (637.5375ms)
+✔ AI-APPROVAL-009: commit failure rolls back approval and all records; stale snapshot requires reapproval (499.0391ms)
+✔ STORE-005/006 native schema regression: each upgrade array entry executes as one statement (3.4487ms)
+✔ STORE-007: SQL migration preserves a populated v1 database and rolls back failed transaction (1.6372ms)
+ℹ tests 34
+ℹ suites 0
+ℹ pass 34
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 4306.9636
+
+CHECK scripts/check-build-dependencies.mjs
+PASS: patched UUID preserves xcode build-tool ID generation
+
+CHECK node_modules/typescript/bin/tsc --noEmit
+
+CHECK node_modules/eslint/bin/eslint.js apps/web/app packages scripts tests capacitor.config.ts playwright.config.ts eslint.config.mjs --max-warnings=0
+
+CHECK node_modules/next/dist/bin/next build apps/web
+▲ Next.js 16.3.6 (Turbopack)
+✓ Running next.config.ts took 29ms
+
+  Creating an optimized production build ...
+✓ Compiled successfully in 322ms
+  Running TypeScript ...
+  Finished TypeScript in 1757ms ...
+  Collecting page data using 4 workers ...
+  Generating static pages using 4 workers (0/3) ...
+✓ Generating static pages using 4 workers (3/3) in 775ms
+  Finalizing page optimization ...
+
+Route (app)
+┌ ○ /
+└ ○ /_not-found
+
+
+○  (Static)  prerendered as static content
+
+
+CHECK scripts/build-offline.mjs
+Offline shell generated: 29 static assets, omnivae-shell-f147a1a02868064f
+
+CHECK node_modules/@playwright/test/cli.js test
+[WebServer] (node:31076) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+Running 9 tests using 4 workers
+
+(node:27120) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:28996) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:29784) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:26128) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  x  3 [tablet-landscape] › tests\e2e\ai.spec.ts:2:1 › AI controlled response: preview, exact approval, calendar refresh and offline history (4.3s)
+  x  4 [tablet-portrait] › tests\e2e\ai.spec.ts:2:1 › AI controlled response: preview, exact approval, calendar refresh and offline history (4.3s)
+(node:23876) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:6464) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ok 2 [tablet-landscape] › tests\e2e\shell.spec.ts:3:1 › PROF-001..005/007 THEME-001: create, persist, lock, switch and reject wrong password (6.5s)
+  ok 1 [tablet-landscape] › tests\e2e\planning.spec.ts:3:1 › P2 offline task/note/calendar/journal flow and reload (7.1s)
+(node:14816) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:22200) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ok 7 [phone] › tests\e2e\ai.spec.ts:2:1 › AI controlled response: preview, exact approval, calendar refresh and offline history (4.1s)
+  ok 5 [tablet-portrait] › tests\e2e\shell.spec.ts:3:1 › PROF-001..005/007 THEME-001: create, persist, lock, switch and reject wrong password (6.4s)
+  ok 6 [tablet-portrait] › tests\e2e\planning.spec.ts:3:1 › P2 offline task/note/calendar/journal flow and reload (6.8s)
+  x  8 [phone] › tests\e2e\planning.spec.ts:3:1 › P2 offline task/note/calendar/journal flow and reload (4.7s)
+  ok 9 [phone] › tests\e2e\shell.spec.ts:3:1 › PROF-001..005/007 THEME-001: create, persist, lock, switch and reject wrong password (4.7s)
+
+
+  1) [tablet-landscape] › tests\e2e\ai.spec.ts:2:1 › AI controlled response: preview, exact approval, calendar refresh and offline history 
+
+    Error: locator.check: Clicking the checkbox did not change its state
+    Call log:
+      - waiting for getByRole('checkbox', { name: 'Complete AI reading task', exact: true })
+        - locator resolved to <input type="checkbox" aria-label="Complete AI reading task"/>
+      - attempting click action
+        - waiting for element to be visible, enabled and stable
+        - element is visible, enabled and stable
+        - scrolling into view if needed
+        - done scrolling
+        - performing click action
+        - click action done
+        - waiting for scheduled navigations to finish
+        - navigations have finished
+
+
+       8 |  await page.getByRole('button',{name:'Approve all 1 changes',exact:true}).click();await expect(page.getByRole('status',{name:'AI status'})).toHaveText('Approved plan saved. Calendar and tasks updated.');
+       9 |  await page.getByLabel('Calendar date',{exact:true}).fill('2026-10-04');await expect(page.getByRole('button',{name:'Edit AI reading task',exact:true})).toBeVisible();
+    > 10 |  await page.getByRole('checkbox',{name:'Complete AI reading task',exact:true}).check();await expect(page.getByRole('checkbox',{name:'Complete AI reading task',exact:true})).toBeChecked();
+         |                                                                                ^
+      11 |  await page.evaluate(async()=>{await navigator.serviceWorker.ready;if(!navigator.serviceWorker.controller)await new Promise(resolve=>navigator.serviceWorker.addEventListener('controllerchange',resolve,{once:true}));});await context.setOffline(true);await page.reload();await page.getByLabel('Password',{exact:true}).fill('synthetic-ai-password');await page.getByRole('button',{name:'Unlock profile',exact:true}).click();
+      12 |  await page.getByRole('combobox',{name:'Conversation',exact:true}).selectOption({label:'Plan reading tomorrow'});await expect(page.getByText('Review this reading plan.',{exact:true})).toBeVisible();
+      13 |  await page.getByLabel('Calendar date',{exact:true}).fill('2026-10-04');await expect(page.getByRole('checkbox',{name:'Complete AI reading task',exact:true})).toBeChecked();
+        at D:\D_downloads\omnivae-specs\omnivae-specs\tests\e2e\ai.spec.ts:10:80
+
+    Error Context: test-results\ai-AI-controlled-response--118f8-refresh-and-offline-history-tablet-landscape\error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results\ai-AI-controlled-response--118f8-refresh-and-offline-history-tablet-landscape\trace.zip
+    Usage:
+
+        npx playwright show-trace test-results\ai-AI-controlled-response--118f8-refresh-and-offline-history-tablet-landscape\trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  2) [tablet-portrait] › tests\e2e\ai.spec.ts:2:1 › AI controlled response: preview, exact approval, calendar refresh and offline history 
+
+    Error: locator.check: Clicking the checkbox did not change its state
+    Call log:
+      - waiting for getByRole('checkbox', { name: 'Complete AI reading task', exact: true })
+        - locator resolved to <input type="checkbox" aria-label="Complete AI reading task"/>
+      - attempting click action
+        - waiting for element to be visible, enabled and stable
+        - element is visible, enabled and stable
+        - scrolling into view if needed
+        - done scrolling
+        - performing click action
+        - click action done
+        - waiting for scheduled navigations to finish
+        - navigations have finished
+
+
+       8 |  await page.getByRole('button',{name:'Approve all 1 changes',exact:true}).click();await expect(page.getByRole('status',{name:'AI status'})).toHaveText('Approved plan saved. Calendar and tasks updated.');
+       9 |  await page.getByLabel('Calendar date',{exact:true}).fill('2026-10-04');await expect(page.getByRole('button',{name:'Edit AI reading task',exact:true})).toBeVisible();
+    > 10 |  await page.getByRole('checkbox',{name:'Complete AI reading task',exact:true}).check();await expect(page.getByRole('checkbox',{name:'Complete AI reading task',exact:true})).toBeChecked();
+         |                                                                                ^
+      11 |  await page.evaluate(async()=>{await navigator.serviceWorker.ready;if(!navigator.serviceWorker.controller)await new Promise(resolve=>navigator.serviceWorker.addEventListener('controllerchange',resolve,{once:true}));});await context.setOffline(true);await page.reload();await page.getByLabel('Password',{exact:true}).fill('synthetic-ai-password');await page.getByRole('button',{name:'Unlock profile',exact:true}).click();
+      12 |  await page.getByRole('combobox',{name:'Conversation',exact:true}).selectOption({label:'Plan reading tomorrow'});await expect(page.getByText('Review this reading plan.',{exact:true})).toBeVisible();
+      13 |  await page.getByLabel('Calendar date',{exact:true}).fill('2026-10-04');await expect(page.getByRole('checkbox',{name:'Complete AI reading task',exact:true})).toBeChecked();
+        at D:\D_downloads\omnivae-specs\omnivae-specs\tests\e2e\ai.spec.ts:10:80
+
+    Error Context: test-results\ai-AI-controlled-response--118f8-refresh-and-offline-history-tablet-portrait\error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results\ai-AI-controlled-response--118f8-refresh-and-offline-history-tablet-portrait\trace.zip
+    Usage:
+
+        npx playwright show-trace test-results\ai-AI-controlled-response--118f8-refresh-and-offline-history-tablet-portrait\trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  3) [phone] › tests\e2e\planning.spec.ts:3:1 › P2 offline task/note/calendar/journal flow and reload 
+
+    Error: expect(locator).toBeVisible() failed
+
+    Locator: getByText('Family time changed my plans.', { exact: true })
+    Expected: visible
+    Error: strict mode violation: getByText('Family time changed my plans.', { exact: true }) resolved to 2 elements:
+        1) <textarea rows="5">Family time changed my plans.</textarea> aka getByRole('textbox', { name: 'Your narrative' })
+        2) <p class="preserve">Family time changed my plans.</p> aka getByRole('article').getByText('Family time changed my plans.')
+
+    Call log:
+      - Expect "toBeVisible" getByText('Family time changed my plans.', { exact: true }) with timeout 5000ms
+      - waiting for getByText('Family time changed my plans.', { exact: true })
+
+
+      39 |   await page.getByLabel('Your narrative').fill('Family time changed my plans.');
+      40 |   await page.getByRole('button',{name:'Save journal',exact:true}).click();
+    > 41 |   await expect(page.getByText('Family time changed my plans.',{exact:true})).toBeVisible();
+         |                                                                              ^
+      42 |   await page.reload();
+      43 |   await page.getByLabel('Password',{exact:true}).fill(password);
+      44 |   await page.getByRole('button',{name:'Unlock profile',exact:true}).click();
+        at D:\D_downloads\omnivae-specs\omnivae-specs\tests\e2e\planning.spec.ts:41:78
+
+    Error Context: test-results\planning-P2-offline-task-n-14a93-dar-journal-flow-and-reload-phone\error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results\planning-P2-offline-task-n-14a93-dar-journal-flow-and-reload-phone\trace.zip
+    Usage:
+
+        npx playwright show-trace test-results\planning-P2-offline-task-n-14a93-dar-journal-flow-and-reload-phone\trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  3 failed
+    [tablet-landscape] › tests\e2e\ai.spec.ts:2:1 › AI controlled response: preview, exact approval, calendar refresh and offline history 
+    [tablet-portrait] › tests\e2e\ai.spec.ts:2:1 › AI controlled response: preview, exact approval, calendar refresh and offline history 
+    [phone] › tests\e2e\planning.spec.ts:3:1 › P2 offline task/note/calendar/journal flow and reload 
+  6 passed (19.3s)
+
+RESULT: exit=1 signal=none
+
+[2026-10-03T22:49:30.767Z] COMMAND: node scripts/verify.mjs
+
+CHECK scripts/requirements.mjs --check
+PASS: 8 UTF-8 source files, balanced fences, 922 source sections current.
+
+CHECK scripts/verify-docs.mjs
+PASS DOC-001/002: all required files exist and are nonempty UTF-8
+PASS DOC-003/009: product headings and fence balance
+PASS DOC-004: completion-rule declarations present
+PASS DOC-005: named phase gates resolve
+PASS DOC-006: invariant terms present; semantic review still required
+PASS DOC-007: required logical entities present
+PASS DOC-010/FND-009 baseline pattern scan: no detected key/token patterns in scanned first-party files. Not a complete security audit.
+DOC-008 requires manual comparison of memory completion claims with current evidence; not automatically certified.
+
+CHECK --test tests/foundation.test.mjs tests/profiles.test.ts tests/planning.test.ts tests/sqlite-migrations.test.ts tests/ai-provider.test.ts tests/proposal.test.ts tests/calendar-view.test.ts tests/progress.test.ts
+✔ AI-PROV-005/006 AI-SEC-003: fixed origins, header-only credentials and structured responses (45.5334ms)
+✔ AI-PROV-002: sanitized error, incomplete output and cancellation (2.1079ms)
+✔ AI-SEC-001/004: separate encrypted vault, provider binding, profile isolation and locked denial (994.4914ms)
+✔ CAL-UI-010: local midnight, exclusive ends, profile scope and unscheduled completion (52.9428ms)
+✔ CAL-UI-010: DST repeated hours retain distinguishable UTC offsets (6.6143ms)
+✔ FND-008: domain imports do not depend on presentation, databases or vendors (3.2177ms)
+✔ Android shell bundles exported assets without a live server URL (2.3523ms)
+✔ Session contract preserves monthly scheduling, voice and on-device inference (0.4476ms)
+✔ FND-002: all first-party source files are valid UTF-8 (9.7194ms)
+✔ TASK-001..006/012: CRUD and durable completion/reopen/cancel history (750.1892ms)
+✔ U-002/003/004 SEC-ISOLATION-001..003: foreign IDs cannot read, update, delete, link or search (767.6693ms)
+✔ NOTE-001..006 TASK-008/010/011 GOAL-008: source note preserved, scoped links, derived progress and deletion (457.5666ms)
+✔ GOAL-002/003/004: cycle prevention and milestone evidence (497.3344ms)
+✔ TASK-007 CAL-001/002/004/006: date and range validation without partial writes (362.9776ms)
+✔ CAL-003 PROG-007/008: IANA timezone, DST gaps/folds and leap days (4.6775ms)
+✔ STORE-003 U-007: stale writes and partial atomic batches preserve earlier data (403.3785ms)
+✔ TIME-001/002: timed task and goal deadlines persist, date-only goals remain supported (465.6361ms)
+✔ PROF-001/002/003/007: create isolated profiles without email, unlock, persist settings (998.892ms)
+✔ PROF-004/005: incorrect credentials and stale sessions cannot access settings (510.0899ms)
+✔ STORE-003: duplicate auth insertion rolls back profile creation transaction (151.3388ms)
+✔ U-006/STORE-005/006: reopen versioned DB preserves populated profiles (not an upgrade test) (290.5968ms)
+✔ SEC: persisted records contain no password, raw key or plaintext preferences (159.884ms)
+✔ SEC: swapped profile ciphertext and tampered ciphertext fail authentication (316.796ms)
+✔ PROF: persisted throttling prevents further KDF attempts until timeout (907.9084ms)
+✔ U-007: invalid profile/settings input does not write partial records (231.8543ms)
+✔ STORE-007/U-009: populated version-1 migration preserves credentials and encrypted settings (231.3199ms)
+✔ PROF-005: lock during decryption invalidates the pending result (238.3098ms)
+✔ PROG-001..009: timezone-derived day/week/month/year progress, edits, deletion and isolation (40.0925ms)
+✔ DASH-001..005: widget settings validation and old preferences defaults (1.0243ms)
+✔ AI-APPROVAL-001/002/004/005/010: strict structured preview, no mutation before approval, exact atomic apply (597.9837ms)
+✔ AI-APPROVAL-006/008/011/012: changed, destructive, expired and foreign approvals cannot write (796.9025ms)
+✔ AI-APPROVAL-009: commit failure rolls back approval and all records; stale snapshot requires reapproval (469.349ms)
+✔ STORE-005/006 native schema regression: each upgrade array entry executes as one statement (2.7257ms)
+✔ STORE-007: SQL migration preserves a populated v1 database and rolls back failed transaction (1.7381ms)
+ℹ tests 34
+ℹ suites 0
+ℹ pass 34
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 4406.5344
+
+CHECK scripts/check-build-dependencies.mjs
+PASS: patched UUID preserves xcode build-tool ID generation
+
+CHECK node_modules/typescript/bin/tsc --noEmit
+
+CHECK node_modules/eslint/bin/eslint.js apps/web/app packages scripts tests capacitor.config.ts playwright.config.ts eslint.config.mjs --max-warnings=0
+
+CHECK node_modules/next/dist/bin/next build apps/web
+▲ Next.js 16.3.6 (Turbopack)
+✓ Running next.config.ts took 30ms
+
+  Creating an optimized production build ...
+✓ Compiled successfully in 477ms
+  Running TypeScript ...
+  Finished TypeScript in 1945ms ...
+  Collecting page data using 4 workers ...
+  Generating static pages using 4 workers (0/3) ...
+✓ Generating static pages using 4 workers (3/3) in 684ms
+  Finalizing page optimization ...
+
+Route (app)
+┌ ○ /
+└ ○ /_not-found
+
+
+○  (Static)  prerendered as static content
+
+
+CHECK scripts/build-offline.mjs
+Offline shell generated: 29 static assets, omnivae-shell-9029f267ad6fdfd4
+
+CHECK node_modules/@playwright/test/cli.js test
+[WebServer] (node:22156) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+Running 9 tests using 4 workers
+
+(node:1720) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:25188) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:28324) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:1672) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ok 4 [tablet-portrait] › tests\e2e\ai.spec.ts:2:1 › AI controlled response: preview, exact approval, calendar refresh and offline history (5.2s)
+  ok 2 [tablet-landscape] › tests\e2e\ai.spec.ts:2:1 › AI controlled response: preview, exact approval, calendar refresh and offline history (8.2s)
+  ok 1 [tablet-landscape] › tests\e2e\shell.spec.ts:3:1 › PROF-001..005/007 THEME-001: create, persist, lock, switch and reject wrong password (9.9s)
+  ok 3 [tablet-landscape] › tests\e2e\planning.spec.ts:3:1 › P2 offline task/note/calendar/journal flow and reload (10.4s)
+(node:13704) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:20116) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ok 5 [tablet-portrait] › tests\e2e\planning.spec.ts:3:1 › P2 offline task/note/calendar/journal flow and reload (6.7s)
+(node:18156) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ok 7 [phone] › tests\e2e\ai.spec.ts:2:1 › AI controlled response: preview, exact approval, calendar refresh and offline history (4.3s)
+(node:29932) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ok 6 [tablet-portrait] › tests\e2e\shell.spec.ts:3:1 › PROF-001..005/007 THEME-001: create, persist, lock, switch and reject wrong password (6.0s)
+  ok 8 [phone] › tests\e2e\planning.spec.ts:3:1 › P2 offline task/note/calendar/journal flow and reload (5.3s)
+  ok 9 [phone] › tests\e2e\shell.spec.ts:3:1 › PROF-001..005/007 THEME-001: create, persist, lock, switch and reject wrong password (3.5s)
+
+  9 passed (24.2s)
+Web foundation checks passed. Native/device gates are separate and must not be inferred.
+
+RESULT: exit=0 signal=none

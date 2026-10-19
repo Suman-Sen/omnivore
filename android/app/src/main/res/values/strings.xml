@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">Omnivae</string>
+    <string name="title_activity_main">Omnivae</string>
+    <string name="package_name">app.omnivae.personal</string>
+    <string name="custom_url_scheme">app.omnivae.personal</string>
+</resources>

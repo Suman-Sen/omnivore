@@ -1,0 +1,35 @@
+{
+  "checkedAt": "2026-10-04T22:59:49.908Z",
+  "tests": [
+    {
+      "id": "TABLET-002/THEME-004",
+      "result": "pass",
+      "detail": "airplane-mode enabled, cold process launch, unlock, encrypted background and completed task remain available"
+    },
+    {
+      "id": "THEME-002",
+      "result": "pass",
+      "detail": "physical portrait/landscape layout checks; screenshots captured for visual review"
+    },
+    {
+      "id": "ANDROID-001",
+      "result": "pass",
+      "detail": "no matching fatal/uncaught/safe-area error in sampled app process log"
+    }
+  ],
+  "rotation": [
+    {
+      "orientation": "0",
+      "width": 800,
+      "height": 1234,
+      "horizontalOverflow": false
+    },
+    {
+      "orientation": "1",
+      "width": 1280,
+      "height": 754,
+      "horizontalOverflow": false
+    }
+  ],
+  "restored": true
+}

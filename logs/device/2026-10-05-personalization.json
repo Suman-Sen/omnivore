@@ -1,0 +1,16 @@
+{
+  "checkedAt": "2026-10-05T05:03:48.827Z",
+  "fixtureName": "Calendar verification muusbg4b",
+  "tests": [
+    {
+      "id": "CAL-SKIN-001/CAL-UI-011",
+      "result": "pass",
+      "detail": "native upload/select/activate/delete, offline reload, font/color/image transparency, date table"
+    },
+    {
+      "id": "THEME-005/CHART-001/HISTORY-001/PROF-FORGET-001/STORE-007",
+      "result": "pass",
+      "detail": "SQLite v5 encryption, settings restart, history and synthetic-profile erasure; original profiles retained"
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "checkedAt": "2026-10-04T23:04:23.930Z",
+  "tests": [
+    {
+      "id": "SECTION-001/002/004",
+      "result": "pass",
+      "detail": "native custom section/create entry/complete/hide/restore"
+    },
+    {
+      "id": "SECTION-003/004",
+      "result": "pass",
+      "detail": "section and completed entry survive native cold process restart"
+    },
+    {
+      "id": "SECTION-005",
+      "result": "pass",
+      "detail": "custom section does not appear in second native profile"
+    }
+  ]
+}
